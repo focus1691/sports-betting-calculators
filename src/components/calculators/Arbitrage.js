@@ -35,13 +35,13 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-export default function Lay() {
+export default function Arbitrage() {
 	const classes = useStyles();
 	const [state, dispatch] = useReducer(reducer, initialState);
 
 	return (
 		<div className={classes.root}>
-			<Grid container spacing={3}>
+			<Grid container xs={12} spacing={3}>
 				<Grid item xs={4}>
 					<TextField required label="Bet Stake" />
 				</Grid>
@@ -64,8 +64,8 @@ export default function Lay() {
 			</Grid>
 			<Divider variant="middle" />
 			<div className={classes.resultSection}>
-				<Grid container xs={12} spacing={3} item={true}>
-					<Grid xs={4} item={true}>
+				<Grid container xs={12} spacing={3}>
+					<Grid xs={4}>
 						<Paper className={classes.result}>
 							<Typography className={classes.resultTitle} variant="h6">UNDER LAY</Typography>
 							<Typography>{`lay ${5.52} at odds ${2}`}</Typography>
@@ -74,7 +74,7 @@ export default function Lay() {
 							<Typography>{`Overall position if lose -0.49`}</Typography>
 						</Paper>
 					</Grid>
-					<Grid xs={4} item={true}>
+					<Grid xs={4}>
 						<Paper className={classes.result}>
 							<Typography className={classes.resultTitle} variant="h6">STANDARD LAY</Typography>
 							<Typography>{`lay ${5.52} at odds ${2}`}</Typography>
@@ -83,7 +83,7 @@ export default function Lay() {
 							<Typography>{`Overall position if lose -0.49`}</Typography>
 						</Paper>
 					</Grid>
-					<Grid xs={4} item={true}>
+					<Grid xs={4}>
 					<Paper className={classes.result}>
 							<Typography className={classes.resultTitle} variant="h6">OVER LAY</Typography>
 							<Typography>{`lay ${5.52} at odds ${2}`}</Typography>

@@ -1,33 +1,39 @@
-import React from 'react';
-import Lay from "./components/calculators/Lay";
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import PermanentDrawerLeft from "./components/sidebar/Sidebar";
+import renderCalculator from "./components/utils/RenderCalculator";
+
+const camelCase = require("camelcase");
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-  },
-  toolbar: theme.mixins.toolbar,
-  content: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(3),
-  },
+	root: {
+		display: "flex"
+	},
+	toolbar: theme.mixins.toolbar,
+	content: {
+		flexGrow: 1,
+		backgroundColor: theme.palette.background.default,
+		padding: theme.spacing(3)
+	}
 }));
 
 function App() {
-  const classes = useStyles();
-  return (
-    <div className={classes.root}>
-      <PermanentDrawerLeft />
+	const classes = useStyles();
+	const [calculator, setCalculator] = useState("Lay Bet");
 
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-          <Lay />
-      </main>
-    </div>
-  );
+	const changeCalculator = key => {
+		setCalculator(key);
+	};
+
+	return (
+		<div className={classes.root}>
+			<PermanentDrawerLeft calculator={calculator} setCalculator={changeCalculator} />
+			<main className={classes.content}>
+				<div className={classes.toolbar} />
+				{renderCalculator(calculator)}
+			</main>
+		</div>
+	);
 }
 
 export default App;
