@@ -1,5 +1,5 @@
-import { roundTheVal } from "../math/general";
-import { getAmountByBetType, getStakeAddedBetType } from "../BetTypes/BetTypes";
+import { roundTheVal } from "../../math/general";
+import { getAmountByBetType, getStakeAddedBetType } from "../../BetTypes/BetTypes";
 
 export const getUnderlayStake = (betType, standardLayProfit, backStake, backOdds, layOdds, backCommission, layCommission) => {
 	var parseFloatBackStake = getAmountByBetType(betType, backStake);
