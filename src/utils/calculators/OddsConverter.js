@@ -23,7 +23,17 @@ function GCD(num1, num2) {
     }
 }
 
-export default (decimal => {
+export const decimalFromFraction = fraction => {
+	var a = fraction.split('/');
+	if(a.length === 2 && !isNaN(a[0]) && !isNaN(a[1])) {
+        console.log((a[0]/a[1])+1);
+		return((a[0]/a[1])+1).toString();
+    }
+    console.log(false);
+	return(false);
+};
+
+export const fractionalFromDecimal = decimal => {
     decimal = parseFloat(decimal).toFixed(2);
     var num = (decimal - 1) * 10000;
     var dom = 10000;
@@ -36,4 +46,4 @@ export default (decimal => {
     dom = a[1];
 
     return (num + '/' + dom);
-});
+};

@@ -1,4 +1,4 @@
-import { NumberSantiser } from "../components/utils/sanitiser/NumberSanitiser";
+import { NumberSantiser } from "../utils/sanitiser/NumberSanitiser";
 
 export const initialState = {
 	betType: "Normal",

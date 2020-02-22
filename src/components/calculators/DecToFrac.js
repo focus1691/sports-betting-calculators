@@ -5,8 +5,8 @@ import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import Chip from '@material-ui/core/Chip';
 import validator from "validator";
-import { isValidInput, isValidInputStrict } from "../utils/sanitiser/NumberSanitiser";
-import DecimalToFraction from "../utils/calculators/DecToFrac";
+import { isValidInput, isValidInputStrict } from "../../utils/sanitiser/NumberSanitiser";
+import { fractionalFromDecimal } from "../../utils/calculators/OddsConverter";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -30,7 +30,7 @@ export default function Lay() {
     };
 
     const handleCalculate = () => e => {
-        isValidInputStrict(odds) && setFraction(DecimalToFraction(odds));
+        isValidInputStrict(odds) && setFraction(fractionalFromDecimal(odds));
     };
 
     const handleClear = () => e => {

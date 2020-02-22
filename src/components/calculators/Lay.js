@@ -8,10 +8,10 @@ import Grid from "@material-ui/core/Grid";
 import Select from '@material-ui/core/Select';
 import { reducer, initialState } from "../../reducers/layReducer";
 import { Paper } from "@material-ui/core";
-import { getStandardLayStake, getStandardLiability, getStandardOverAllPositionIfWin, getStandardOverAllPositionIfLoss } from "../utils/calculators/LayBet/standard";
-import { getOverlayStake, getOverlayLiability, getOverlayOverAllPositionIfWin, getOverlayOverAllPositionIfLoss } from "../utils/calculators/LayBet/over";
-import { getUnderlayStake, getUnderlayLiability, getUnderlayOverAllPositionIfWin, getUnderlayOverAllPositionIfLoss } from "../utils/calculators/LayBet/under";
-import { isInputsValid } from "../utils/sanitiser/NumberSanitiser";
+import { getStandardLayStake, getStandardLiability, getStandardOverAllPositionIfWin, getStandardOverAllPositionIfLoss } from "../../utils/calculators/LayBet/standard";
+import { getOverlayStake, getOverlayLiability, getOverlayOverAllPositionIfWin, getOverlayOverAllPositionIfLoss } from "../../utils/calculators/LayBet/over";
+import { getUnderlayStake, getUnderlayLiability, getUnderlayOverAllPositionIfWin, getUnderlayOverAllPositionIfLoss } from "../../utils/calculators/LayBet/under";
+import { isInputsValid } from "../../utils/sanitiser/NumberSanitiser";
 
 const useStyles = makeStyles(theme => ({
 	root: {

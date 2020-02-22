@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import PermanentDrawerLeft from "./components/sidebar/Sidebar";
-import renderCalculator from "./components/utils/RenderCalculator";
+import renderCalculator from "./utils/RenderCalculator";
 
 const camelCase = require("camelcase");
 
