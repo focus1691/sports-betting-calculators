@@ -50,7 +50,7 @@ export default function PermanentDrawerLeft({ calculator, setCalculator }) {
 				<div className={classes.toolbar} />
 				<Divider />
 				<List>
-					{["Lay Bet", "Arbitrage", "Decimal to Fractional Odds", "Fractional to Decimal Odds", "Hedging"].map((text, index) => (
+					{["Lay Bet", "Arbitrage", "Decimal to Fractional Odds", "Fractional to Decimal Odds", "Hedging", "Staking"].map((text, index) => (
 						<ListItem button key={text} onClick={() => setCalculator(text)} selected={calculator === text}>
 							<ListItemIcon>{<SportsSoccerIcon />}</ListItemIcon>
 							<ListItemText primary={text} />

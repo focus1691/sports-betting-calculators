@@ -10,7 +10,7 @@ import { decimalFromFraction } from "../../utils/calculators/OddsConverter";
 const useStyles = makeStyles(theme => ({
 	root: {
 		margin: "auto",
-		maxWidth: "70%",
+		maxWidth: "30%",
 		border: "1px solid #e6e6e6",
 		padding: theme.spacing(1)
 	},
