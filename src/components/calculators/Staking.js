@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
 import Select from "@material-ui/core/Select";
 import Chip from "@material-ui/core/Chip";
 import validator from "validator";
@@ -15,8 +16,16 @@ const useStyles = makeStyles(theme => ({
 		border: "1px solid #e6e6e6",
 		padding: theme.spacing(1)
 	},
+	title: {
+		background: "#000",
+		color: "#fff"
+	},
 	button: {
-		margin: theme.spacing(1)
+		margin: theme.spacing(1),
+		background: "#1573ca",
+		'&:hover': {
+			background: "#0d508d"
+		}
 	},
 	text: {
 		margin: theme.spacing(1)
@@ -38,7 +47,6 @@ export default function Staking() {
 	const handleChangeBalance = () => e => {
 		if (isValidInputStrict(e.target.value)) setBalance(e.target.value);
 		else {
-			setRisk("");
 			setBalance("");
 			setStake("");
 		}
@@ -57,8 +65,11 @@ export default function Staking() {
 	return (
 		<div className={classes.root}>
 			<Grid container spacing={3}>
+				<Grid item xs={12} className={classes.title}>
+					<Typography variant="h1">Staking</Typography>
+				</Grid>
 				<Grid item xs={4}>
-					<TextField required label="Bank Balance" className={classes.text} onChange={handleChangeBalance()} />
+					<TextField required label="Bank Balance" value={balance} className={classes.text} onChange={handleChangeBalance()} />
 				</Grid>
 				<Grid item xs={4}>
 					<Select native value={risk} className={classes.select} onChange={e => setRisk(e.target.value)}>
