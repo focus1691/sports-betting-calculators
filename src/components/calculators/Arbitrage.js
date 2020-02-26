@@ -10,7 +10,7 @@ import { calculateArb } from "../../utils/calculators/Arbitrage";
 const useStyles = makeStyles(theme => ({
 	root: {
 		margin: "auto",
-		maxWidth: "70%",
+		maxWidth: "60%",
 		border: "1px solid #e6e6e6",
 		padding: theme.spacing(1)
 	},
@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
 	resultField: {
 		margin: theme.spacing(1),
 		background: "#f3f3f3",
-		border: "1px solid #e4e4e4",
+		border: "1px solid #ffeabc",
 		padding: theme.spacing(1)
 	}
 }));

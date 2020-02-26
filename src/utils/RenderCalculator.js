@@ -1,6 +1,7 @@
 import React from "react";
 import Lay from "../components/calculators/Lay";
 import Arbitrage from "../components/calculators/Arbitrage";
+import Dutching from "../components/calculators/Dutching";
 import DecToFrac from "../components/calculators/DecToFrac";
 import FracToDec from "../components/calculators/FracToDec";
 import Staking from "../components/calculators/Staking";
@@ -17,6 +18,8 @@ export default calculator => {
 			return <FracToDec />;
 		case "Staking":
 			return <Staking />;
+		case "Dutching":
+			return <Dutching />;
 		default:
 			return null;
 	}

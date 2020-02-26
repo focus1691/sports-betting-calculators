@@ -34,6 +34,8 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
+const calculatorList = ["Lay Bet", "Arbitrage", "Decimal to Fractional Odds", "Fractional to Decimal Odds", "Hedging", "Dutching", "Staking"];
+
 export default function PermanentDrawerLeft({ calculator, setCalculator }) {
 	const classes = useStyles();
 
@@ -50,7 +52,7 @@ export default function PermanentDrawerLeft({ calculator, setCalculator }) {
 				<div className={classes.toolbar} />
 				<Divider />
 				<List>
-					{["Lay Bet", "Arbitrage", "Decimal to Fractional Odds", "Fractional to Decimal Odds", "Hedging", "Staking"].map((text, index) => (
+					{calculatorList.map((text, index) => (
 						<ListItem button key={text} onClick={() => setCalculator(text)} selected={calculator === text}>
 							<ListItemIcon>{<SportsSoccerIcon />}</ListItemIcon>
 							<ListItemText primary={text} />
