@@ -25,12 +25,12 @@ const useStyles = makeStyles(theme => ({
 	button: {
 		margin: theme.spacing(1),
 		background: "#1573ca",
-		'&:hover': {
+		"&:hover": {
 			background: "#0d508d"
 		}
 	},
 	oddsField: {
-		margin: theme.spacing(1),
+		margin: theme.spacing(1)
 	},
 	resultField: {
 		margin: theme.spacing(1),
@@ -107,10 +107,10 @@ export default function Arbitrage() {
 					<Grid item xs={12}>
 						<Button variant="contained" color="primary" className={classes.button} onClick={handleCalculate()}>
 							Calculate
-					</Button>
+						</Button>
 						<Button variant="contained" color="primary" className={classes.button} onClick={handleClear()}>
 							Clear
-					</Button>
+						</Button>
 					</Grid>
 				</Grid>
 			</Grid>

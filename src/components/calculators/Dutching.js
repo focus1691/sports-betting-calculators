@@ -140,6 +140,14 @@ export default function Dutching() {
 					<Grid item xs={2}>
 						<TextField disabled label="Stake" className={classes.result} />
 					</Grid>
+					<Grid item xs={12}>
+						<Button variant="contained" color="primary" className={classes.button} onClick={null}>
+							Calculate
+						</Button>
+						<Button variant="contained" color="primary" className={classes.button} onClick={null}>
+							Clear
+						</Button>
+					</Grid>
 					{}
 				</Grid>
 			</Grid>
