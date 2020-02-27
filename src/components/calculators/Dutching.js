@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import { isValidInput, isInputsValid } from "../../utils/sanitiser/NumberSanitiser";
-import { calcHedge } from "../../utils/calculators/Hedging";
+import { calculateHedge } from "../../utils/calculators/Hedging";
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -43,7 +43,6 @@ export default function Dutching() {
 	const classes = useStyles();
 
 	const renderResults = () => {
-		calcHedge;
 		return (
 			<>
 				<Grid item xs={2}>
