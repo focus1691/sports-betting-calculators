@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import { isValidInput, isInputsValid } from "../../utils/sanitiser/NumberSanitiser";
-import { calculateArb } from "../../utils/calculators/Arbitrage";
+import { calcHedge } from "../../utils/calculators/Hedging";
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -21,9 +21,9 @@ const useStyles = makeStyles(theme => ({
 	title: {
 		background: "#000",
 		color: "#fff"
-    },
-    selection: {
-        padding: theme.spacing(1)
+	},
+	selection: {
+		padding: theme.spacing(1)
 	},
 	result: {
 		margin: theme.spacing(1),
@@ -41,10 +41,28 @@ const useStyles = makeStyles(theme => ({
 
 export default function Dutching() {
 	const classes = useStyles();
+
+	const renderResults = () => {
+		calcHedge;
+		return (
+			<>
+				<Grid item xs={2}>
+					<TextField required label="Stake" className={classes.selection} />
+				</Grid>
+				<Grid item xs={2}>
+					<TextField disabled label="Net Profit" className={classes.result} />
+				</Grid>
+				<Grid item xs={2}>
+					<TextField disabled label="Gross Profit" className={classes.result} />
+				</Grid>
+			</>
+		);
+	};
+
 	return (
 		<div className={classes.root}>
 			<Grid container spacing={3}>
-                <Grid item xs={12} className={classes.title}>
+				<Grid item xs={12} className={classes.title}>
 					<Typography variant="h1">Dutching</Typography>
 				</Grid>
 				<Grid container className={classes.container}>
@@ -123,16 +141,7 @@ export default function Dutching() {
 					<Grid item xs={2}>
 						<TextField disabled label="Stake" className={classes.result} />
 					</Grid>
-
-					<Grid item xs={4}>
-						<TextField required label="Stake" className={classes.selection} />
-					</Grid>
-					<Grid item xs={4}>
-						<TextField disabled label="Net Profit" className={classes.result} />
-					</Grid>
-					<Grid item xs={4}>
-						<TextField disabled label="Gross Profit" className={classes.result} />
-					</Grid>
+					{}
 				</Grid>
 			</Grid>
 		</div>
