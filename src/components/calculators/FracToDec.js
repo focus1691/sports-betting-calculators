@@ -15,6 +15,10 @@ const useStyles = makeStyles(theme => ({
 		border: "1px solid #e6e6e6",
 		padding: theme.spacing(1)
 	},
+	container: {
+		border: "1px solid #000",
+		backgroundImage: "linear-gradient(to top, #dfe9f3 0%, white 100%)"
+	},
 	title: {
 		background: "#000",
 		color: "#fff"
@@ -52,6 +56,7 @@ export default function FracToDec() {
 				<Grid item xs={12} className={classes.title}>
 					<Typography variant="h1">Fractional to Decimal</Typography>
 				</Grid>
+				<Grid container className={classes.container}>
 				<Grid item xs={12}>
 					<TextField required label="Fraction e.g. 5/2" value={fraction} onChange={handleFractionChange()} />
 				</Grid>
@@ -68,6 +73,7 @@ export default function FracToDec() {
 						<Chip variant="outlined" size="small" label={decimal} clickable color="primary" />
 					</Grid>
 				) : null}
+				</Grid>
 			</Grid>
 		</div>
 	);

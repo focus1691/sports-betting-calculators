@@ -10,9 +10,13 @@ import { calculateArb } from "../../utils/calculators/Arbitrage";
 const useStyles = makeStyles(theme => ({
 	root: {
 		margin: "auto",
-		maxWidth: "60%",
+		maxWidth: "90%",
 		border: "1px solid #e6e6e6",
 		padding: theme.spacing(1)
+	},
+	container: {
+		border: "1px solid #000",
+		backgroundImage: "linear-gradient(to top, #dfe9f3 0%, white 100%)"
 	},
 	title: {
 		background: "#000",
@@ -20,7 +24,12 @@ const useStyles = makeStyles(theme => ({
     },
     selection: {
         padding: theme.spacing(1)
-    },
+	},
+	result: {
+		margin: theme.spacing(1),
+		background: "#FFF",
+		border: "1px solid"
+	},
 	button: {
 		margin: theme.spacing(1),
 		background: "#1573ca",
@@ -38,29 +47,93 @@ export default function Dutching() {
                 <Grid item xs={12} className={classes.title}>
 					<Typography variant="h1">Dutching</Typography>
 				</Grid>
-				<Grid item xs={12}>
-					<TextField required label="Selection 1" className={classes.selection} />
-                    <TextField required label="Selection 2" className={classes.selection} />
-                    <TextField required label="Selection 3" className={classes.selection} />
-                    <TextField required label="Selection 4" className={classes.selection} />
-                    <TextField required label="Selection 5" className={classes.selection} />
-					<TextField required label="Selection 6" className={classes.selection} />
-                    <TextField required label="Selection 7" className={classes.selection} />
-                    <TextField required label="Selection 8" className={classes.selection} />
-                    <TextField required label="Selection 9" className={classes.selection} />
-                    <TextField required label="Selection 10" className={classes.selection} />
-                    <TextField required label="Selection 11" className={classes.selection} />
-                    <TextField required label="Selection 12" className={classes.selection} />
+				<Grid container className={classes.container}>
+					<Grid item xs={2}>
+						<TextField required label="Selection 1 odds" className={classes.selection} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField disabled label="Stake" className={classes.result} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField label="Selection 2" className={classes.selection} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField disabled label="Stake" className={classes.result} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField label="Selection 3" className={classes.selection} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField disabled label="Stake" className={classes.result} />
+					</Grid>
+
+					<Grid item xs={2}>
+						<TextField label="Selection 4" className={classes.selection} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField disabled label="Stake" className={classes.result} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField label="Selection 5" className={classes.selection} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField disabled label="Stake" className={classes.result} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField label="Selection 6" className={classes.selection} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField disabled label="Stake" className={classes.result} />
+					</Grid>
+
+					<Grid item xs={2}>
+						<TextField label="Selection 7" className={classes.selection} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField disabled label="Stake" className={classes.result} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField label="Selection 8" className={classes.selection} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField disabled label="Stake" className={classes.result} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField label="Selection 9" className={classes.selection} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField disabled label="Stake" className={classes.result} />
+					</Grid>
+
+					<Grid item xs={2}>
+						<TextField label="Selection 10" className={classes.selection} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField disabled label="Stake" className={classes.result} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField label="Selection 11" className={classes.selection} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField disabled label="Stake" className={classes.result} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField label="Selection 12" className={classes.selection} />
+					</Grid>
+					<Grid item xs={2}>
+						<TextField disabled label="Stake" className={classes.result} />
+					</Grid>
+
+					<Grid item xs={4}>
+						<TextField required label="Stake" className={classes.selection} />
+					</Grid>
+					<Grid item xs={4}>
+						<TextField disabled label="Net Profit" className={classes.result} />
+					</Grid>
+					<Grid item xs={4}>
+						<TextField disabled label="Gross Profit" className={classes.result} />
+					</Grid>
 				</Grid>
-                <Grid item xs={12}>
-                    <TextField required label="Stake" className={classes.selection} />
-                </Grid>
-                <Grid item xs={12}>
-                    <TextField required disabled label="Net Profit" className={classes.selection} />
-                </Grid>
-                <Grid item xs={12}>
-                    <TextField required disabled label="Gross Profit" className={classes.selection} />
-                </Grid>
 			</Grid>
 		</div>
 	);

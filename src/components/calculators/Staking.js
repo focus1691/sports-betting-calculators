@@ -16,6 +16,10 @@ const useStyles = makeStyles(theme => ({
 		border: "1px solid #e6e6e6",
 		padding: theme.spacing(1)
 	},
+	container: {
+		border: "1px solid #000",
+		backgroundImage: "linear-gradient(to top, #dfe9f3 0%, white 100%)"
+	},
 	title: {
 		background: "#000",
 		color: "#fff"
@@ -68,27 +72,29 @@ export default function Staking() {
 				<Grid item xs={12} className={classes.title}>
 					<Typography variant="h1">Staking</Typography>
 				</Grid>
-				<Grid item xs={4}>
-					<TextField required label="Bank Balance" value={balance} className={classes.text} onChange={handleChangeBalance()} />
-				</Grid>
-				<Grid item xs={4}>
-					<Select native value={risk} className={classes.select} onChange={e => setRisk(e.target.value)}>
-						<option value={200}>Conservative</option>
-						<option value={100}>Aggressive</option>
-					</Select>
-				</Grid>
-				{!validator.isEmpty(stake) && !validator.isEmpty(balance) ? (
+				<Grid container className={classes.container}>
 					<Grid item xs={4}>
-						<Chip variant="outlined" size="small" label={stake} className={classes.chip} clickable color="primary" />
+						<TextField required label="Bank Balance" value={balance} className={classes.text} onChange={handleChangeBalance()} />
 					</Grid>
-				) : null}
-				<Grid item xs={12}>
-					<Button variant="contained" color="primary" className={classes.button} onClick={handleCalculate()}>
-						Calculate
+					<Grid item xs={4}>
+						<Select native value={risk} className={classes.select} onChange={e => setRisk(e.target.value)}>
+							<option value={200}>Conservative</option>
+							<option value={100}>Aggressive</option>
+						</Select>
+					</Grid>
+					{!validator.isEmpty(stake) && !validator.isEmpty(balance) ? (
+						<Grid item xs={4}>
+							<Chip variant="outlined" size="small" label={stake} className={classes.chip} clickable color="primary" />
+						</Grid>
+					) : null}
+					<Grid item xs={12}>
+						<Button variant="contained" color="primary" className={classes.button} onClick={handleCalculate()}>
+							Calculate
 					</Button>
-					<Button variant="contained" color="primary" className={classes.button} onClick={handleClear()}>
-						Clear
+						<Button variant="contained" color="primary" className={classes.button} onClick={handleClear()}>
+							Clear
 					</Button>
+					</Grid>
 				</Grid>
 			</Grid>
 		</div>

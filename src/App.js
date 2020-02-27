@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
 
 function App() {
 	const classes = useStyles();
-	const [calculator, setCalculator] = useState("Dutching");
+	const [calculator, setCalculator] = useState("Hedging");
 
 	const changeCalculator = key => {
 		setCalculator(key);

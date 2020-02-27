@@ -14,6 +14,10 @@ const useStyles = makeStyles(theme => ({
 		border: "1px solid #e6e6e6",
 		padding: theme.spacing(1)
 	},
+	container: {
+		border: "1px solid #000",
+		backgroundImage: "linear-gradient(to top, #dfe9f3 0%, white 100%)"
+	},
 	title: {
 		background: "#000",
 		color: "#fff"
@@ -24,6 +28,9 @@ const useStyles = makeStyles(theme => ({
 		'&:hover': {
 			background: "#0d508d"
 		}
+	},
+	oddsField: {
+		margin: theme.spacing(1),
 	},
 	resultField: {
 		margin: theme.spacing(1),
@@ -86,23 +93,25 @@ export default function Arbitrage() {
 				<Grid item xs={12} className={classes.title}>
 					<Typography variant="h1">Arbitrage</Typography>
 				</Grid>
-				<Grid item xs={4}>
-					<TextField required label="Bet 1 odds" value={betOne} onChange={e => isValidInput(e.target.value) && setBetOne(e.target.value)} />
-				</Grid>
-				<Grid item xs={4}>
-					<TextField required label="Bet 2 odds" value={betTwo} onChange={e => isValidInput(e.target.value) && setBetTwo(e.target.value)} />
-				</Grid>
-				<Grid item xs={4}>
-					<TextField required label="Stake" value={stake} onChange={e => isValidInput(e.target.value) && setStake(e.target.value)} />
-				</Grid>
-				{arb ? renderResults() : null}
-				<Grid item xs={12}>
-					<Button variant="contained" color="primary" className={classes.button} onClick={handleCalculate()}>
-						Calculate
+				<Grid container className={classes.container}>
+					<Grid item xs={4}>
+						<TextField required label="Bet 1 odds" value={betOne} onChange={e => isValidInput(e.target.value) && setBetOne(e.target.value)} className={classes.oddsField} />
+					</Grid>
+					<Grid item xs={4}>
+						<TextField required label="Bet 2 odds" value={betTwo} onChange={e => isValidInput(e.target.value) && setBetTwo(e.target.value)} className={classes.oddsField} />
+					</Grid>
+					<Grid item xs={4}>
+						<TextField required label="Stake" value={stake} onChange={e => isValidInput(e.target.value) && setStake(e.target.value)} className={classes.oddsField} />
+					</Grid>
+					{arb ? renderResults() : null}
+					<Grid item xs={12}>
+						<Button variant="contained" color="primary" className={classes.button} onClick={handleCalculate()}>
+							Calculate
 					</Button>
-					<Button variant="contained" color="primary" className={classes.button} onClick={handleClear()}>
-						Clear
+						<Button variant="contained" color="primary" className={classes.button} onClick={handleClear()}>
+							Clear
 					</Button>
+					</Grid>
 				</Grid>
 			</Grid>
 		</div>

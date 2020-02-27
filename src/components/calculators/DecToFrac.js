@@ -16,16 +16,20 @@ const useStyles = makeStyles(theme => ({
         border: "1px solid #e6e6e6",
         padding: theme.spacing(1)
     },
-	title: {
-		background: "#000",
-		color: "#fff"
-	},
+    container: {
+        border: "1px solid #000",
+        backgroundImage: "linear-gradient(to top, #dfe9f3 0%, white 100%)"
+    },
+    title: {
+        background: "#000",
+        color: "#fff"
+    },
     button: {
-		margin: theme.spacing(1),
-		background: "#1573ca",
-		'&:hover': {
-			background: "#0d508d"
-		}
+        margin: theme.spacing(1),
+        background: "#1573ca",
+        '&:hover': {
+            background: "#0d508d"
+        }
     }
 }));
 
@@ -51,30 +55,32 @@ export default function Lay() {
         <div className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={12} className={classes.title}>
-					<Typography variant="h1">Decimal to Fraction</Typography>
-				</Grid>
-                <Grid item xs={12}>
-                    <TextField required label="Odds e.g. 2.56" value={odds} onChange={handleOddsChange()} />
+                    <Typography variant="h1">Decimal to Fraction</Typography>
                 </Grid>
-                <Grid item xs={12}>
-                    <Button variant="contained" color="primary" className={classes.button} onClick={handleCalculate()}>
-                        Calculate
-					</Button>
-                    <Button variant="contained" color="primary" className={classes.button} onClick={handleClear()}>
-                        Clear
-					</Button>
-                </Grid>
-                {!validator.isEmpty(odds) && !validator.isEmpty(fraction) ?
-                    <Grid item xs={6}>
-                        <Chip
-                            variant="outlined"
-                            size="small"
-                            label={fraction}
-                            clickable
-                            color="primary"
-                        />
+                <Grid container className={classes.container}>
+                    <Grid item xs={12}>
+                        <TextField required label="Odds e.g. 2.56" value={odds} onChange={handleOddsChange()} />
                     </Grid>
-                    : null}
+                    <Grid item xs={12}>
+                        <Button variant="contained" color="primary" className={classes.button} onClick={handleCalculate()}>
+                            Calculate
+					</Button>
+                        <Button variant="contained" color="primary" className={classes.button} onClick={handleClear()}>
+                            Clear
+					</Button>
+                    </Grid>
+                    {!validator.isEmpty(odds) && !validator.isEmpty(fraction) ?
+                        <Grid item xs={6}>
+                            <Chip
+                                variant="outlined"
+                                size="small"
+                                label={fraction}
+                                clickable
+                                color="primary"
+                            />
+                        </Grid>
+                        : null}
+                </Grid>
             </Grid>
         </div>
     );
