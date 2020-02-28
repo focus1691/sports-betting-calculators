@@ -48,17 +48,17 @@ export default function Hedging() {
 	const renderResults = () => {
 		return (
 			<>
-				<Grid item xs={4} className={classes.result}>
-					<Typography variant="h2">{`You should lay £${amountToBet}`}</Typography>
+				<Grid item xs={4}>
+					<Typography variant="h2" className={classes.resultText}>{`You should lay £${amountToBet}`}</Typography>
 				</Grid>
-				<Grid item xs={4} className={classes.result}>
-					<Typography variant="h2">{`Total Stake £${totalStaked}`}</Typography>
+				<Grid item xs={4}>
+					<Typography variant="h2" className={classes.resultText}>{`Total Stake £${totalStaked}`}</Typography>
 				</Grid>
-				<Grid item xs={4} className={classes.result}>
-					<Typography variant="h2">{`To Gurantee £${profit}`}</Typography>
+				<Grid item xs={4}>
+					<Typography variant="h2" className={classes.resultText}>{`To Gurantee £${profit}`}</Typography>
 				</Grid>
-				<Grid item xs={4} className={classes.result}>
-					<Typography variant="h2">Total returned £66</Typography>
+				<Grid item xs={4}>
+					<Typography variant="h2" className={classes.resultText}>Total returned £66</Typography>
 				</Grid>
 			</>
 		);

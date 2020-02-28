@@ -66,9 +66,64 @@ const calculatorStyle = theme => ({
 	},
 	result: {
 		margin: theme.spacing(1),
-		textDecoration: "underline",
-		textDecorationColor: "#2cb633",
+		fontWeight: "bold",
+		'& .MuiFormLabel-root': {
+			borderColor: 'red'
+		},
+		'& .MuiInputLabel-formControl': {
+			borderColor: 'red'
+		},
+		'& .MuiInputBase-input': {
+			color: '#fff'
+		},
+		'& .MuiInputLabel-animated': {
+			color: '#fff'
+		},
+		'& .MuiInput-formControl': {
+			'&:before': {
+				color: '#73cd44',
+				borderBottom: '1px dashed #78e7fc'
+			},
+			'&:after': {
+				borderColor: '#fff'
+			},
+			'&:focused': {
+				borderColor: '#8CE7FC'
+			}
+		}
+	},
+	resultText: {
+		color: '#73cd44',
+		borderBottom: '1px dashed #78e7fc',
 		fontWeight: "bold"
+	},
+	resultMain: {
+		margin: theme.spacing(1),
+		fontWeight: "bold",
+		'& .MuiFormLabel-root': {
+			borderColor: 'red'
+		},
+		'& .MuiInputLabel-formControl': {
+			borderColor: 'red'
+		},
+		'& .MuiInputBase-input': {
+			color: '#fff'
+		},
+		'& .MuiInputLabel-animated': {
+			color: '#fff'
+		},
+		'& .MuiInput-formControl': {
+			'&:before': {
+				color: '#73cd44',
+				borderBottom: '1px dashed #73cd44'
+			},
+			'&:after': {
+				borderColor: '#fff'
+			},
+			'&:focused': {
+				borderColor: '#8CE7FC'
+			}
+		}
 	},
 	calculateBtn: {
 		margin: theme.spacing(1),

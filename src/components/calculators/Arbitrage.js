@@ -16,12 +16,6 @@ const useStyles = makeStyles(theme => ({
 		border: "1px solid #e6e6e6",
 		padding: theme.spacing(1)
 	},
-	resultField: {
-		margin: theme.spacing(1),
-		background: "#f3f3f3",
-		border: "1px solid #ffeabc",
-		padding: theme.spacing(1)
-	}
 }));
 
 export default function Arbitrage() {
@@ -55,17 +49,17 @@ export default function Arbitrage() {
 		return (
 			<>
 				<Grid item xs={4}>
-					<TextField disabled label={`stake ${stake1}`} className={classes.resultField} />
-					<TextField disabled label={`payout ${payout1}`} className={classes.resultField} />
+					<TextField disabled label={`stake ${stake1}`} className={classes.result} />
+					<TextField disabled label={`payout ${payout1}`} className={classes.result} />
 				</Grid>
 				<Grid item xs={4}>
-					<TextField disabled label={`stake ${stake2}`} className={classes.resultField} />
-					<TextField disabled label={`payout ${payout2}`} className={classes.resultField} />
+					<TextField disabled label={`stake ${stake2}`} className={classes.result} />
+					<TextField disabled label={`payout ${payout2}`} className={classes.result} />
 				</Grid>
 				<Grid item xs={4}>
-					<TextField disabled label={`Total Payout ${totalPayout}`} className={classes.resultField} />
-					<TextField disabled label={`Profit ${profit}`} className={classes.resultField} />
-					<TextField disabled label={`ROI ${roi}`} className={classes.resultField} />
+					<TextField disabled label={`Total Payout ${totalPayout}`} className={classes.result} />
+					<TextField disabled label={`Profit ${profit}`} className={classes.result} />
+					<TextField disabled label={`ROI ${roi}`} className={classes.result} />
 				</Grid>
 			</>
 		);

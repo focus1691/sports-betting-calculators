@@ -17,11 +17,6 @@ const useStyles = makeStyles(theme => ({
 		border: "1px solid #e6e6e6",
 		padding: theme.spacing(1)
 	},
-	result: {
-		margin: theme.spacing(1),
-		background: "#FFF",
-		border: "1px solid"
-	},
 }));
 
 export default function Dutching() {
@@ -216,13 +211,13 @@ export default function Dutching() {
 						<TextField disabled label="Stake" className={classes.result} value={selections.sel12.stake} />
 					</Grid>
 					<Grid item xs={2}>
-						<TextField label="Stake" className={classes.result} value={stake} onChange={e => dispatch({ type: "SET_STAKE", payload: e.target.value })} />
+						<TextField label="Stake" className={classes.resultMain} value={stake} onChange={e => dispatch({ type: "SET_STAKE", payload: e.target.value })} />
 					</Grid>
 					<Grid item xs={2}>
-						<TextField disabled label="Total Return" className={classes.result} value={totalReturn} />
+						<TextField disabled label="Total Return" className={classes.resultMain} value={totalReturn} />
 					</Grid>
 					<Grid item xs={2}>
-						<TextField disabled label="Profit" className={classes.result} value={profit} />
+						<TextField disabled label="Profit" className={classes.resultMain} value={profit} />
 					</Grid>
 					<Grid item xs={12}>
 						<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate()}>
