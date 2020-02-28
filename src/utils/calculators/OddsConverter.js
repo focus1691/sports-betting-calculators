@@ -26,10 +26,8 @@ function GCD(num1, num2) {
 export const decimalFromFraction = fraction => {
 	var a = fraction.split('/');
 	if(a.length === 2 && !isNaN(a[0]) && !isNaN(a[1])) {
-        console.log((a[0]/a[1])+1);
 		return((a[0]/a[1])+1).toString();
     }
-    console.log(false);
 	return(false);
 };
 
