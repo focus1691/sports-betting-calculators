@@ -8,34 +8,15 @@ import Select from "@material-ui/core/Select";
 import Chip from "@material-ui/core/Chip";
 import validator from "validator";
 import { isValidInputStrict } from "../../utils/sanitiser/NumberSanitiser";
+import calculatorStyle from "../../jss/calculator";
 
 const useStyles = makeStyles(theme => ({
+	...calculatorStyle(theme),
 	root: {
 		margin: "auto",
 		maxWidth: "60%",
 		border: "1px solid #e6e6e6",
 		padding: theme.spacing(1)
-	},
-	container: {
-		border: "1px solid #000",
-		backgroundImage: "linear-gradient(to top, #dfe9f3 0%, white 100%)"
-	},
-	title: {
-		background: "#000",
-		color: "#fff"
-	},
-	button: {
-		margin: theme.spacing(1),
-		background: "#1573ca",
-		'&:hover': {
-			background: "#0d508d"
-		}
-	},
-	text: {
-		margin: theme.spacing(1)
-	},
-	select: {
-		margin: theme.spacing(3)
 	},
 	chip: {
 		margin: theme.spacing(3)
@@ -74,7 +55,7 @@ export default function Staking() {
 				</Grid>
 				<Grid container className={classes.container}>
 					<Grid item xs={4}>
-						<TextField required label="Bank Balance" value={balance} className={classes.text} onChange={handleChangeBalance()} />
+						<TextField required label="Bank Balance" value={balance} className={classes.selection} onChange={handleChangeBalance()} />
 					</Grid>
 					<Grid item xs={4}>
 						<Select native value={risk} className={classes.select} onChange={e => setRisk(e.target.value)}>
@@ -88,10 +69,10 @@ export default function Staking() {
 						</Grid>
 					) : null}
 					<Grid item xs={12}>
-						<Button variant="contained" color="primary" className={classes.button} onClick={handleCalculate()}>
+						<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate()}>
 							Calculate
 					</Button>
-						<Button variant="contained" color="primary" className={classes.button} onClick={handleClear()}>
+						<Button variant="contained" color="primary" className={classes.clearBtn} onClick={handleClear()}>
 							Clear
 					</Button>
 					</Grid>

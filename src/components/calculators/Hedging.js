@@ -7,38 +7,16 @@ import Grid from "@material-ui/core/Grid";
 import { reducer, initialState } from "../../reducers/hedgingReducer";
 import { calculateHedge } from "../../utils/calculators/Hedging";
 import { isValidInput, isInputsValid } from "../../utils/sanitiser/NumberSanitiser";
+import calculatorStyle from "../../jss/calculator";
 
 const useStyles = makeStyles(theme => ({
+	...calculatorStyle(theme),
 	root: {
 		margin: "auto",
 		maxWidth: "70%",
-		border: "1px solid #e6e6e6",
-		padding: theme.spacing(1)
+		border: "2px solid #e6e6e6",
+		padding: theme.spacing(1),
 	},
-	container: {
-		border: "1px solid #000",
-		backgroundImage: "linear-gradient(to top, #dfe9f3 0%, white 100%)"
-	},
-	title: {
-		background: "#000",
-		color: "#fff"
-	},
-	result: {
-		margin: theme.spacing(1),
-		textDecoration: "underline",
-		textDecorationColor: "#2cb633",
-		fontWeight: "bold"
-	},
-	selection: {
-		padding: theme.spacing(1)
-	},
-	button: {
-		margin: theme.spacing(1),
-		background: "#1573ca",
-		"&:hover": {
-			background: "#0d508d"
-		}
-	}
 }));
 
 export default function Hedging() {
@@ -114,10 +92,10 @@ export default function Hedging() {
 					</Grid>
 					{calculationMade ? renderResults() : null}
 					<Grid item xs={12}>
-						<Button variant="contained" color="primary" className={classes.button} onClick={handleCalculate()}>
+						<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate()}>
 							Calculate
 						</Button>
-						<Button variant="contained" color="primary" className={classes.button} onClick={handleClear()}>
+						<Button variant="contained" color="primary" className={classes.clearBtn} onClick={handleClear()}>
 							Clear
 						</Button>
 					</Grid>

@@ -12,24 +12,15 @@ import { getStandardLayStake, getStandardLiability, getStandardOverAllPositionIf
 import { getOverlayStake, getOverlayLiability, getOverlayOverAllPositionIfWin, getOverlayOverAllPositionIfLoss } from "../../utils/calculators/LayBet/over";
 import { getUnderlayStake, getUnderlayLiability, getUnderlayOverAllPositionIfWin, getUnderlayOverAllPositionIfLoss } from "../../utils/calculators/LayBet/under";
 import { isInputsValid } from "../../utils/sanitiser/NumberSanitiser";
+import calculatorStyle from "../../jss/calculator";
 
 const useStyles = makeStyles(theme => ({
+	...calculatorStyle(theme),
 	root: {
 		margin: "auto",
 		maxWidth: "70%",
 		border: "1px solid #e6e6e6",
 		padding: theme.spacing(1)
-	},
-	title: {
-		background: "#000",
-		color: "#fff"
-	},
-	button: {
-		margin: theme.spacing(1),
-		background: "#1573ca",
-		'&:hover': {
-			background: "#0d508d"
-		}
 	},
 	result: {
 		margin: theme.spacing(1)
@@ -37,9 +28,6 @@ const useStyles = makeStyles(theme => ({
 	resultTitle: {
 		textDecoration: "underline",
 		textAlign: "center"
-	},
-	hidden: {
-		display: "none"
 	}
 }));
 
@@ -91,73 +79,76 @@ export default function Lay() {
 				<Grid item xs={12} className={classes.title}>
 					<Typography variant="h1">Lay</Typography>
 				</Grid>
-				<Grid item xs={12}>
-					<Select
-						native
-						value={state.betType}
-						onChange={e => dispatch({ type: "SET_BET_TYPE", payload: e.target.value })}
-						inputProps={{
-							name: 'betType',
-							id: 'bet-type-selector',
-						}}
-					>
-						<option value={"Normal"}>Normal</option>
-						<option value={"SNR"}>SNR</option>
-						<option value={"SR"}>SR</option>
-					</Select>
-				</Grid>
-				<Grid item xs={4}>
-					<TextField required label="Bet Stake" value={state.betStake} onChange={e => dispatch({ type: "SET_BACK_STAKE", payload: e.target.value })} />
-				</Grid>
-				<Grid item xs={4}>
-					<TextField required label="Back Odds" value={state.backOdds} onChange={e => dispatch({ type: "SET_BACK_ODDS", payload: e.target.value })} />
-					<TextField required label="Lay Odds" value={state.layOdds} onChange={e => dispatch({ type: "SET_LAY_ODDS", payload: e.target.value })} />
-				</Grid>
-				<Grid item xs={4}>
-					<TextField required label="Back Commission" value={state.backCommission} onChange={e => dispatch({ type: "SET_BACK_COMMISSION", payload: e.target.value })} />
-					<TextField required label="Lay Commission" value={state.layCommission} onChange={e => dispatch({ type: "SET_LAY_COMMISSION", payload: e.target.value })} />
-				</Grid>
-				<Grid item xs={12}>
-					<Button variant="contained" color="primary" className={classes.button} onClick={handleCalculate()}>
-						Calculate
+				<Grid container className={classes.container}>
+					<Grid item xs={12} className={classes.selectContainer}>
+						<Select
+							native
+							className={classes.select}
+							value={state.betType}
+							onChange={e => dispatch({ type: "SET_BET_TYPE", payload: e.target.value })}
+							inputProps={{
+								name: 'betType',
+								id: 'bet-type-selector',
+							}}
+						>
+							<option value={"Normal"}>Normal</option>
+							<option value={"SNR"}>SNR</option>
+							<option value={"SR"}>SR</option>
+						</Select>
+					</Grid>
+					<Grid item xs={4}>
+						<TextField required label="Bet Stake" value={state.betStake} onChange={e => dispatch({ type: "SET_BACK_STAKE", payload: e.target.value })} className={classes.selection} />
+					</Grid>
+					<Grid item xs={4}>
+						<TextField required label="Back Odds" value={state.backOdds} onChange={e => dispatch({ type: "SET_BACK_ODDS", payload: e.target.value })} className={classes.selection} />
+						<TextField required label="Lay Odds" value={state.layOdds} onChange={e => dispatch({ type: "SET_LAY_ODDS", payload: e.target.value })} className={classes.selection} />
+					</Grid>
+					<Grid item xs={4}>
+						<TextField required label="Back Commission" value={state.backCommission} onChange={e => dispatch({ type: "SET_BACK_COMMISSION", payload: e.target.value })} className={classes.selection} />
+						<TextField required label="Lay Commission" value={state.layCommission} onChange={e => dispatch({ type: "SET_LAY_COMMISSION", payload: e.target.value })} className={classes.selection} />
+					</Grid>
+					<Grid item xs={12}>
+						<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate()}>
+							Calculate
 					</Button>
-					<Button variant="contained" color="primary" className={classes.button} onClick={handleClear()}>
-						Clear
+						<Button variant="contained" color="primary" className={classes.clearBtn} onClick={handleClear()}>
+							Clear
 					</Button>
+					</Grid>
 				</Grid>
+				<Divider variant="middle" />
+				<div className={classes.resultSection} style={{ display: state.calculationMade ? "" : "none" }}>
+					<Grid container xs={12} spacing={1} item={true}>
+						<Grid xs={4} item={true}>
+							<Paper className={classes.result}>
+								<Typography className={classes.resultTitle} variant="h6">UNDER LAY</Typography>
+								<Typography>{`lay ${underStake} at odds ${layOdds}`}</Typography>
+								<Typography>{`Liability is ${underLiability}`}</Typography>
+								<Typography>{`Overall position if win ${underWin}`}</Typography>
+								<Typography>{`Overall position if lose ${underLose}`}</Typography>
+							</Paper>
+						</Grid>
+						<Grid xs={4} item={true}>
+							<Paper className={classes.result}>
+								<Typography className={classes.resultTitle} variant="h6">STANDARD LAY</Typography>
+								<Typography>{`lay ${standardStake} at odds ${layOdds}`}</Typography>
+								<Typography>{`Liability is ${standardLiability}`}</Typography>
+								<Typography>{`Overall position if win ${standardWin}`}</Typography>
+								<Typography>{`Overall position if lose ${standardLose}`}</Typography>
+							</Paper>
+						</Grid>
+						<Grid xs={4} item={true}>
+							<Paper className={classes.result}>
+								<Typography className={classes.resultTitle} variant="h6">OVER LAY</Typography>
+								<Typography>{`lay ${overStake} at odds ${layOdds}`}</Typography>
+								<Typography>{`Liability is ${overLiability}`}</Typography>
+								<Typography>{`Overall position if win ${overWin}`}</Typography>
+								<Typography>{`Overall position if lose ${overLose}`}</Typography>
+							</Paper>
+						</Grid>
+					</Grid>
+				</div>
 			</Grid>
-			<Divider variant="middle" />
-			<div className={classes.resultSection} style={{ display: state.calculationMade ? "" : "none" }}>
-				<Grid container xs={12} spacing={1} item={true}>
-					<Grid xs={4} item={true}>
-						<Paper className={classes.result}>
-							<Typography className={classes.resultTitle} variant="h6">UNDER LAY</Typography>
-							<Typography>{`lay ${underStake} at odds ${layOdds}`}</Typography>
-							<Typography>{`Liability is ${underLiability}`}</Typography>
-							<Typography>{`Overall position if win ${underWin}`}</Typography>
-							<Typography>{`Overall position if lose ${underLose}`}</Typography>
-						</Paper>
-					</Grid>
-					<Grid xs={4} item={true}>
-						<Paper className={classes.result}>
-							<Typography className={classes.resultTitle} variant="h6">STANDARD LAY</Typography>
-							<Typography>{`lay ${standardStake} at odds ${layOdds}`}</Typography>
-							<Typography>{`Liability is ${standardLiability}`}</Typography>
-							<Typography>{`Overall position if win ${standardWin}`}</Typography>
-							<Typography>{`Overall position if lose ${standardLose}`}</Typography>
-						</Paper>
-					</Grid>
-					<Grid xs={4} item={true}>
-						<Paper className={classes.result}>
-							<Typography className={classes.resultTitle} variant="h6">OVER LAY</Typography>
-							<Typography>{`lay ${overStake} at odds ${layOdds}`}</Typography>
-							<Typography>{`Liability is ${overLiability}`}</Typography>
-							<Typography>{`Overall position if win ${overWin}`}</Typography>
-							<Typography>{`Overall position if lose ${overLose}`}</Typography>
-						</Paper>
-					</Grid>
-				</Grid>
-			</div>
 		</div>
 	);
 }

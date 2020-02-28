@@ -7,23 +7,14 @@ import Grid from "@material-ui/core/Grid";
 import { initialState, reducer } from "../../reducers/dutchingReducer";
 import { isValidInput, isOneInputValid, isValidInputStrict } from "../../utils/sanitiser/NumberSanitiser";
 import { calculateDutching, calculateProfit } from "../../utils/calculators/Dutching";
+import calculatorStyle from "../../jss/calculator";
 
 const useStyles = makeStyles(theme => ({
+	...calculatorStyle(theme),
 	root: {
 		margin: "auto",
 		maxWidth: "90%",
 		border: "1px solid #e6e6e6",
-		padding: theme.spacing(1)
-	},
-	container: {
-		border: "1px solid #000",
-		backgroundImage: "linear-gradient(to top, #dfe9f3 0%, white 100%)"
-	},
-	title: {
-		background: "#000",
-		color: "#fff"
-	},
-	selection: {
 		padding: theme.spacing(1)
 	},
 	result: {
@@ -31,13 +22,6 @@ const useStyles = makeStyles(theme => ({
 		background: "#FFF",
 		border: "1px solid"
 	},
-	button: {
-		margin: theme.spacing(1),
-		background: "#1573ca",
-		"&:hover": {
-			background: "#0d508d"
-		}
-	}
 }));
 
 export default function Dutching() {
@@ -241,10 +225,10 @@ export default function Dutching() {
 						<TextField disabled label="Profit" className={classes.result} value={profit} />
 					</Grid>
 					<Grid item xs={12}>
-						<Button variant="contained" color="primary" className={classes.button} onClick={handleCalculate()}>
+						<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate()}>
 							Calculate
 						</Button>
-						<Button variant="contained" color="primary" className={classes.button} onClick={handleClear()}>
+						<Button variant="contained" color="primary" className={classes.clearBtn} onClick={handleClear()}>
 							Clear
 						</Button>
 					</Grid>

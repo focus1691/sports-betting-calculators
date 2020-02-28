@@ -24,17 +24,21 @@ const useStyles = makeStyles(theme => ({
 		flexShrink: 0
 	},
 	drawerPaper: {
-		width: drawerWidth
+		width: drawerWidth,
+		color: "#fff",
+		background: "#404040"
 	},
 	toolbar: theme.mixins.toolbar,
 	content: {
 		flexGrow: 1,
-		backgroundColor: theme.palette.background.default,
 		padding: theme.spacing(3)
+	},
+	icon: {
+		color: "#ff8f46"
 	}
 }));
 
-const calculatorList = ["Lay Bet", "Arbitrage", "Decimal to Fractional Odds", "Fractional to Decimal Odds", "Hedging", "Dutching", "Staking"];
+const calculatorList = ["Arbitrage", "Hedging", "Dutching", "Lay Bet", "Staking", "Decimal to Fractional Odds", "Fractional to Decimal Odds"];
 
 export default function PermanentDrawerLeft({ calculator, setCalculator }) {
 	const classes = useStyles();
@@ -54,7 +58,7 @@ export default function PermanentDrawerLeft({ calculator, setCalculator }) {
 				<List>
 					{calculatorList.map((text, index) => (
 						<ListItem button key={text} onClick={() => setCalculator(text)} selected={calculator === text}>
-							<ListItemIcon>{<SportsSoccerIcon />}</ListItemIcon>
+							<ListItemIcon className={classes.icon}>{<SportsSoccerIcon />}</ListItemIcon>
 							<ListItemText primary={text} />
 						</ListItem>
 					))}
