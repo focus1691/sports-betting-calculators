@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import PermanentDrawerLeft from "./components/sidebar/Sidebar";
 import renderCalculator from "./utils/RenderCalculator";
+import { useCookies } from 'react-cookie';
 
 const camelCase = require("camelcase");
 
@@ -19,15 +20,17 @@ const useStyles = makeStyles(theme => ({
 
 function App() {
 	const classes = useStyles();
-	const [calculator, setCalculator] = useState("Dutching");
+	const [cookies, setCookies] = useCookies(['calculator']);
+	const [calculator, setCalculator] = useState(cookies.calculator || 'Arbitrage');
 
-	const changeCalculator = key => {
-		setCalculator(key);
+	const handleChange = selection => {
+		setCookies('calculator', selection);
+		setCalculator(selection);
 	};
 
 	return (
 		<div className={classes.root}>
-			<PermanentDrawerLeft calculator={calculator} setCalculator={changeCalculator} />
+			<PermanentDrawerLeft calculator={calculator} setCalculator={handleChange} />
 			<main className={classes.content}>
 				<div className={classes.toolbar} />
 				{renderCalculator(calculator)}
