@@ -93,7 +93,7 @@ const calculatorStyle = theme => ({
 		}
 	},
 	resultText: {
-		color: '#73cd44',
+		color: '#fff',
 		borderBottom: '1px dashed #78e7fc',
 		fontWeight: "bold"
 	},
