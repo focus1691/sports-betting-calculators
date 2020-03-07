@@ -18,11 +18,9 @@ import SaveAlt from "@material-ui/icons/SaveAlt";
 import Search from "@material-ui/icons/Search";
 import ViewColumn from "@material-ui/icons/ViewColumn";
 
-const useStyles = makeStyles(theme => ({
-	...tableStyle(theme)
-}));
+const useStyles = makeStyles(theme => ({ ...tableStyle(theme) }));
 
-const ArbTable = () => {
+const BonusTable = () => {
 	const classes = useStyles();
 	const [state, setState] = React.useState({
 		columns: [
@@ -104,4 +102,4 @@ const ArbTable = () => {
 	);
 };
 
-export default ArbTable;
+export default BonusTable;

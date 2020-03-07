@@ -1,12 +1,12 @@
 import React from "react";
-import Lay from "../components/calculators/Lay";
-import Arbitrage from "../components/calculators/arbitrage/Arbitrage";
-import Dutching from "../components/calculators/Dutching";
+import Lay from "../components/calculators/lay/";
+import Arbitrage from "../components/calculators/arbitrage/";
+import Dutching from "../components/calculators/dutching/";
 import DecToFrac from "../components/calculators/DecToFrac";
 import FracToDec from "../components/calculators/FracToDec";
-import Hedging from "../components/calculators/Hedging";
+import Hedging from "../components/calculators/hedging/";
 import Staking from "../components/calculators/Staking";
-import BonusBet from "../components/calculators/BonusBet";
+import BonusBet from "../components/calculators/bonus/";
 
 export default calculator => {
 	switch (calculator) {
@@ -21,7 +21,7 @@ export default calculator => {
 		case "Bonus Bet":
 			return <BonusBet />;
 		case "Hedging":
-			return <Hedging />
+			return <Hedging />;
 		case "Staking":
 			return <Staking />;
 		case "Dutching":
