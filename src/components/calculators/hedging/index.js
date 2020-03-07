@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import TableChartIcon from "@material-ui/icons/TableChart";
+import FunctionsIcon from "@material-ui/icons/Functions";
 import HedgingCalculator from "./HedgingCalculator";
 import HedgingTable from "./HedgingTable";
 import headerStyle from "../../../jss/Header";
@@ -26,11 +27,11 @@ const Hedging = () => {
 					<Typography variant="h1">
 						Hedging
 						<IconButton color="inherit" aria-label="Toggle" edge="start" onClick={toggleMode}>
-							<TableChartIcon />
+							{mode === "calculator" ? <TableChartIcon /> : <FunctionsIcon />}
 						</IconButton>
 					</Typography>
 				</Grid>
-				{ mode === "calculator" ? <HedgingCalculator /> : <HedgingTable /> }
+				{mode === "calculator" ? <HedgingCalculator /> : <HedgingTable />}
 			</Grid>
 		</div>
 	);

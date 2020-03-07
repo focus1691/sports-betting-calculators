@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import TableChartIcon from "@material-ui/icons/TableChart";
+import FunctionsIcon from "@material-ui/icons/Functions";
 import ArbCalculator from "./LayCalculator";
 import ArbTable from "./LayTable";
 import headerStyle from "../../../jss/Header";
@@ -26,11 +27,11 @@ const Lay = () => {
 					<Typography variant="h1">
 						Lay
 						<IconButton color="inherit" aria-label="Toggle" edge="start" onClick={toggleMode}>
-							<TableChartIcon />
+							{mode === "calculator" ? <TableChartIcon /> : <FunctionsIcon />}
 						</IconButton>
 					</Typography>
 				</Grid>
-				{ mode === "calculator" ? <ArbCalculator /> : <ArbTable /> }
+				{mode === "calculator" ? <ArbCalculator /> : <ArbTable />}
 			</Grid>
 		</div>
 	);
