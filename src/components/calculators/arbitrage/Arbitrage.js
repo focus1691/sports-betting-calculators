@@ -4,9 +4,12 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
-import { isValidInput, isInputsValid } from "../../utils/sanitiser/NumberSanitiser";
-import { calculateArb } from "../../utils/calculators/Arbitrage";
-import calculatorStyle from "../../jss/calculator";
+import IconButton from '@material-ui/core/IconButton';
+import TableChartIcon from '@material-ui/icons/TableChart';
+import { isValidInput, isInputsValid } from "../../../utils/sanitiser/NumberSanitiser";
+import { calculateArb } from "../../../utils/calculators/Arbitrage";
+import calculatorStyle from "../../../jss/calculator";
+import ArbTable from "./ArbTable";
 
 const useStyles = makeStyles(theme => ({
 	...calculatorStyle(theme),
@@ -69,9 +72,18 @@ export default function Arbitrage() {
 		<div className={classes.root}>
 			<Grid container spacing={3}>
 				<Grid item xs={12} className={classes.title}>
-					<Typography variant="h1">Arbitrage</Typography>
+					<Typography variant="h1">Arbitrage
+						<IconButton
+							color="inherit"
+							aria-label="open drawer"
+							edge="start"
+						>
+							<TableChartIcon />
+						</IconButton>
+					</Typography>
 				</Grid>
-				<Grid container className={classes.container}>
+				<ArbTable />
+				{/* <Grid container className={classes.container}>
 					<Grid item xs={4}>
 						<TextField required label="Bet 1 odds" value={betOne} onChange={e => isValidInput(e.target.value) && setBetOne(e.target.value)} className={classes.selection} />
 					</Grid>
@@ -90,7 +102,7 @@ export default function Arbitrage() {
 							Clear
 						</Button>
 					</Grid>
-				</Grid>
+				</Grid> */}
 			</Grid>
 		</div>
 	);

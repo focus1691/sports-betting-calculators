@@ -4,6 +4,8 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
+import IconButton from '@material-ui/core/IconButton';
+import TableChartIcon from '@material-ui/icons/TableChart';
 import { initialState, reducer } from "../../reducers/dutchingReducer";
 import { isValidInput, isOneInputValid, isValidInputStrict } from "../../utils/sanitiser/NumberSanitiser";
 import { calculateDutching, calculateProfit } from "../../utils/calculators/Dutching";
@@ -70,8 +72,16 @@ export default function Dutching() {
 	return (
 		<div className={classes.root}>
 			<Grid container spacing={3}>
-				<Grid item xs={12} className={classes.title}>
-					<Typography variant="h1">Dutching</Typography>
+			<Grid item xs={12} className={classes.title}>
+					<Typography variant="h1">Dutching
+						<IconButton
+							color="inherit"
+							aria-label="open drawer"
+							edge="start"
+						>
+							<TableChartIcon />
+						</IconButton>
+					</Typography>
 				</Grid>
 				<Grid container className={classes.container}>
 					<Grid item xs={2}>

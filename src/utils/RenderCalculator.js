@@ -1,6 +1,6 @@
 import React from "react";
 import Lay from "../components/calculators/Lay";
-import Arbitrage from "../components/calculators/Arbitrage";
+import Arbitrage from "../components/calculators/arbitrage/Arbitrage";
 import Dutching from "../components/calculators/Dutching";
 import DecToFrac from "../components/calculators/DecToFrac";
 import FracToDec from "../components/calculators/FracToDec";

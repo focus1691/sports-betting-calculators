@@ -4,6 +4,8 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
+import IconButton from '@material-ui/core/IconButton';
+import TableChartIcon from '@material-ui/icons/TableChart';
 import calculatorStyle from "../../jss/calculator";
 import { isValidInput, isInputsValid } from "../../utils/sanitiser/NumberSanitiser";
 import { calculateBonusBet } from "../../utils/calculators/BonusBet";
@@ -64,7 +66,15 @@ export default function BonusBet() {
 		<div className={classes.root}>
 			<Grid container spacing={3}>
 				<Grid item xs={12} className={classes.title}>
-					<Typography variant="h1">Bonus Bet</Typography>
+					<Typography variant="h1">Bonus Bet
+						<IconButton
+							color="inherit"
+							aria-label="open drawer"
+							edge="start"
+						>
+							<TableChartIcon />
+						</IconButton>
+					</Typography>
 				</Grid>
 				<Grid container className={classes.container}>
 					<Grid item xs={2}>

@@ -9,11 +9,23 @@ const calculatorStyle = theme => ({
 			padding: theme.spacing(2),
 		},
 	},
+	table: {
+		background: 'yellow',
+		width: '100%',
+		'& .MuiPaper-root': {
+			background: 'yellow',
+			width: '100%'
+		}
+	},
 	title: {
 		background: "#000",
 		color: "#fff",
 		'& .MuiTypography-h1': {
 			fontWeight: 'bold'
+		},
+		'& .MuiIconButton-root': {
+			float: 'right',
+			padding: 0
 		}
 	},
 	selection: {

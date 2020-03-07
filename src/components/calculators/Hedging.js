@@ -4,6 +4,8 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
+import IconButton from '@material-ui/core/IconButton';
+import TableChartIcon from '@material-ui/icons/TableChart';
 import { reducer, initialState } from "../../reducers/hedgingReducer";
 import { calculateHedge } from "../../utils/calculators/Hedging";
 import { isValidInput, isInputsValid } from "../../utils/sanitiser/NumberSanitiser";
@@ -68,7 +70,15 @@ export default function Hedging() {
 		<div className={classes.root}>
 			<Grid container spacing={3}>
 				<Grid item xs={12} className={classes.title}>
-					<Typography variant="h1">Hedging</Typography>
+					<Typography variant="h1">Hedging
+						<IconButton
+							color="inherit"
+							aria-label="open drawer"
+							edge="start"
+						>
+							<TableChartIcon />
+						</IconButton>
+					</Typography>
 				</Grid>
 				<Grid container className={classes.container}>
 					<Grid item xs={3}>

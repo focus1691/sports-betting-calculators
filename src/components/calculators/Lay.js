@@ -4,10 +4,12 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
 import Select from '@material-ui/core/Select';
-import { reducer, initialState } from "../../reducers/layReducer";
 import { Paper } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import IconButton from '@material-ui/core/IconButton';
+import TableChartIcon from '@material-ui/icons/TableChart';
+import { reducer, initialState } from "../../reducers/layReducer";
 import { getStandardLayStake, getStandardLiability, getStandardOverAllPositionIfWin, getStandardOverAllPositionIfLoss } from "../../utils/calculators/LayBet/standard";
 import { getOverlayStake, getOverlayLiability, getOverlayOverAllPositionIfWin, getOverlayOverAllPositionIfLoss } from "../../utils/calculators/LayBet/over";
 import { getUnderlayStake, getUnderlayLiability, getUnderlayOverAllPositionIfWin, getUnderlayOverAllPositionIfLoss } from "../../utils/calculators/LayBet/under";
@@ -77,7 +79,15 @@ export default function Lay() {
 		<div className={classes.root}>
 			<Grid container spacing={3}>
 				<Grid item xs={12} className={classes.title}>
-					<Typography variant="h1">Lay</Typography>
+					<Typography variant="h1">Lay
+						<IconButton
+							color="inherit"
+							aria-label="open drawer"
+							edge="start"
+						>
+							<TableChartIcon />
+						</IconButton>
+					</Typography>
 				</Grid>
 				<Grid container className={classes.container}>
 					<Grid item xs={12} className={classes.selectContainer}>
