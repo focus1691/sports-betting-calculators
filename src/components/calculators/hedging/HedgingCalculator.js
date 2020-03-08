@@ -1,24 +1,29 @@
 import React, { useReducer } from "react";
+import { connect } from "react-redux";
+import { addHedge } from "../../../actions/hedgingActions";
+import { reducer, initialState } from "../../../reducers/hedgingReducer";
 import { makeStyles } from "@material-ui/core/styles";
+import HedgeResults from "./HedgeResults";
 import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import AddIcon from "@material-ui/icons/Add";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
-import { reducer, initialState } from "../../../reducers/hedgingReducer";
+import { createHedge } from "../../../utils/constants/table/Hedging";
 import { calculateHedge } from "../../../utils/calculators/Hedging";
 import { isValidInput, isInputsValid } from "../../../utils/sanitiser/NumberSanitiser";
 import calculatorStyle from "../../../jss/calculator";
 
 const useStyles = makeStyles(theme => ({ ...calculatorStyle(theme) }));
 
-export default function Hedging() {
+const HedgingCalculator = ({ onReceiveHedge }) => {
 	const classes = useStyles();
 	const [state, dispatch] = useReducer(reducer, initialState);
 
 	const { backStake, backPrice, layPrice, commission, calculationMade } = state;
-	const { amountToBet, profit, totalStaked } = state.hedge;
+	const { amountToBet, profit, totalStaked, totalReturned } = state.hedge;
 
-	const handleCalculate = () => e => {
+	const handleCalculate = () => {
 		if (isInputsValid([backStake, backPrice, layPrice, commission])) {
 			const calculatedHedge = calculateHedge(backStake, backPrice, layPrice);
 			dispatch({ type: "SET_HEDGE", payload: calculatedHedge });
@@ -33,29 +38,17 @@ export default function Hedging() {
 		}
 	};
 
-	const handleClear = () => e => {
-		dispatch({ type: "CLEAR_CALCULATION", payload: false });
+	const handleAddHedge = () => {
+		if (isInputsValid([backStake, backPrice, layPrice, commission])) {
+			const { amountToBet, profit, totalStaked, totalReturned } = calculateHedge(backStake, backPrice, layPrice);
+
+			//! dispatch to redux store here
+			onReceiveHedge(createHedge(backStake, backPrice, layPrice, commission, amountToBet, totalStaked, profit, totalReturned));
+		}
 	};
 
-	const renderResults = () => {
-		return (
-			<>
-				<Grid item xs={4}>
-					<Typography variant="h2" className={classes.resultText}>{`You should lay £${amountToBet}`}</Typography>
-				</Grid>
-				<Grid item xs={4}>
-					<Typography variant="h2" className={classes.resultText}>{`Total Stake £${totalStaked}`}</Typography>
-				</Grid>
-				<Grid item xs={4}>
-					<Typography variant="h2" className={classes.resultText}>{`To Gurantee £${profit}`}</Typography>
-				</Grid>
-				<Grid item xs={4}>
-					<Typography variant="h2" className={classes.resultText}>
-						Total returned £66
-					</Typography>
-				</Grid>
-			</>
-		);
+	const handleClear = () => {
+		dispatch({ type: "CLEAR_CALCULATION", payload: false });
 	};
 
 	return (
@@ -79,15 +72,26 @@ export default function Hedging() {
 					onChange={e => dispatch({ type: "SET_COMMISSION", payload: e.target.value })}
 				/>
 			</Grid>
-			{calculationMade ? renderResults() : null}
+			{calculationMade ? <HedgeResults amountToBet={amountToBet} profit={profit} totalStaked={totalStaked} totalReturned={totalReturned} style={classes.resultText} /> : null}
 			<Grid item xs={12}>
-				<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate()}>
+				<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
 					Calculate
 				</Button>
-				<Button variant="contained" color="primary" className={classes.clearBtn} onClick={handleClear()}>
+				<Button variant="contained" color="primary" className={classes.clearBtn} onClick={handleClear}>
 					Clear
 				</Button>
+				<IconButton color="inherit" className={classes.addBtn} aria-label="Add" edge="start" onClick={handleAddHedge}>
+					<AddIcon />
+				</IconButton>
 			</Grid>
 		</Grid>
 	);
-}
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+		onReceiveHedge: hedge => dispatch(addHedge(hedge))
+	};
+};
+
+export default connect(null, mapDispatchToProps)(HedgingCalculator);

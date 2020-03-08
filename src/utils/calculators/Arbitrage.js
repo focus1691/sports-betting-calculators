@@ -36,3 +36,15 @@ export const calculateArb = (stake, odds1, odds2, betCount) => {
 		roi
 	};
 };
+
+export const EmptyArb = () => {
+	return {
+		stake1: "",
+		stake2: "",
+		payout1: "",
+		payout2: "",
+		totalPayout: "",
+		profit: "",
+		roi: ""
+	};
+};

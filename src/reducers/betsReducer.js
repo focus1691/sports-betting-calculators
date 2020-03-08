@@ -1,6 +1,7 @@
 const initialState = {
 	arbs: [],
-	bonusBets: []
+	bonusBets: [],
+	hedges: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -29,6 +30,18 @@ const reducer = (state = initialState, action) => {
 			const newBonusBets2 = [...state.bonusBets];
 			newBonusBets2.splice(newBonusBets2.indexOf(action.payload.oldBonusBet), 1);
 			return { ...state, bonusBets: newBonusBets2 };
+		case "SET_HEDGES":
+			return { ...state, hedges: action.payload };
+		case "ADD_HEDGE":
+			return { ...state, hedges: [...state.hedges, action.payload] };
+		case "EDIT_HEDGE":
+			const newHedges = [...state.hedges];
+			newHedges[newHedges.indexOf(action.payload.oldHedge)] = action.payload.newHedge;
+			return { ...state, hedges: newHedges };
+		case "DELETE_HEDGE":
+			const newHedges2 = [...state.hedges];
+			newHedges2.splice(newHedges2.indexOf(action.payload.oldHedge), 1);
+			return { ...state, hedges: newHedges2 };
 		default:
 			return state;
 	}

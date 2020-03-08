@@ -12,6 +12,7 @@ export const calculateHedge = (stake, price, exitPrice) => {
 	return {
 		amountToBet,
 		profit,
-		totalStaked
+		totalStaked,
+		totalReturned: total
 	};
 };
