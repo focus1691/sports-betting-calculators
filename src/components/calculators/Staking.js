@@ -9,6 +9,7 @@ import Chip from "@material-ui/core/Chip";
 import validator from "validator";
 import { isValidInputStrict } from "../../utils/sanitiser/NumberSanitiser";
 import calculatorStyle from "../../jss/calculator";
+import resultChipStyle from "../../jss/ResultChip";
 
 const useStyles = makeStyles(theme => ({
 	...calculatorStyle(theme),
@@ -19,6 +20,7 @@ const useStyles = makeStyles(theme => ({
 		padding: theme.spacing(1)
 	},
 	chip: {
+		...resultChipStyle,
 		margin: theme.spacing(3)
 	}
 }));

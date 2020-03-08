@@ -1,3 +1,5 @@
+import resultChipStyle from "./ResultChip";
+
 const calculatorStyle = theme => ({
 	container: {
 		border: "3px dotted #c58800",
@@ -129,11 +131,8 @@ const calculatorStyle = theme => ({
 			}
 		}
 	},
-	resultChip: {
-		left: '50%',
-		color: '#00FF00',
-		borderColor: '#fff',
-		fontWeight: 'bold'
+	resultChip: { 
+		...resultChipStyle
 	},
 	calculateBtn: {
 		margin: theme.spacing(1),
