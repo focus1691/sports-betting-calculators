@@ -11,7 +11,7 @@ import Header from "../Header";
 import sidebarStyle from "../../jss/Sidebar";
 
 const useStyles = makeStyles(theme => ({ ...sidebarStyle(theme) }));
-const calculatorList = ["Arbitrage", "Bonus Bet", "Dutching", "Hedging", "Lay Bet", "Staking", "Decimal to Fractional Odds", "Fractional to Decimal Odds"];
+const calculatorList = ["Arbitrage", "Bonus Bet", "Dutching", "Hedging", "Lay Bet", "Staking", "Odds"];
 
 export default function PermanentDrawerLeft({ calculator, setCalculator }) {
 	const classes = useStyles();

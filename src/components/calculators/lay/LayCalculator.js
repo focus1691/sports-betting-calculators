@@ -40,7 +40,7 @@ export default function Lay() {
 	const { overStake, overLiability, overWin, overLose } = state.over;
 	const { underStake, underLiability, underWin, underLose } = state.under;
 
-	const handleCalculate = () => e => {
+	const handleCalculate = () => {
 		//! Standard Lay stake, liability, win, lose
 		let standardStake = getStandardLayStake(betType, betStake, backOdds, layOdds, backCommission, layCommission);
 		let standardLiability = getStandardLiability(betType, standardStake, layOdds);
@@ -69,7 +69,7 @@ export default function Lay() {
 		}
 	};
 
-	const handleClear = () => e => {
+	const handleClear = () => {
 		dispatch({ type: "CLEAR_CALCULATION", payload: false });
 	};
 
@@ -103,10 +103,10 @@ export default function Lay() {
 					<TextField required label="Lay Commission" value={state.layCommission} onChange={e => dispatch({ type: "SET_LAY_COMMISSION", payload: e.target.value })} className={classes.selection} />
 				</Grid>
 				<Grid item xs={12}>
-					<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate()}>
+					<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
 						Calculate
 					</Button>
-					<Button variant="contained" color="primary" className={classes.clearBtn} onClick={handleClear()}>
+					<Button variant="contained" color="primary" className={classes.clearBtn} onClick={handleClear}>
 						Clear
 					</Button>
 				</Grid>

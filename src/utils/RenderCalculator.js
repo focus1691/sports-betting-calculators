@@ -2,8 +2,7 @@ import React from "react";
 import Lay from "../components/calculators/lay/";
 import Arbitrage from "../components/calculators/arbitrage/";
 import Dutching from "../components/calculators/dutching/";
-import DecToFrac from "../components/calculators/DecToFrac";
-import FracToDec from "../components/calculators/FracToDec";
+import Odds from "../components/calculators/odds/Odds";
 import Hedging from "../components/calculators/hedging/";
 import Staking from "../components/calculators/Staking";
 import BonusBet from "../components/calculators/bonus/";
@@ -14,10 +13,8 @@ export default calculator => {
 			return <Lay />;
 		case "Arbitrage":
 			return <Arbitrage />;
-		case "Decimal to Fractional Odds":
-			return <DecToFrac />;
-		case "Fractional to Decimal Odds":
-			return <FracToDec />;
+		case "Odds":
+			return <Odds />;
 		case "Bonus Bet":
 			return <BonusBet />;
 		case "Hedging":

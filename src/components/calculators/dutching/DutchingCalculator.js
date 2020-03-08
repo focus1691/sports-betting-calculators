@@ -23,7 +23,7 @@ export default function Dutching() {
 	const [state, dispatch] = useReducer(reducer, initialState);
 	const { selections, stake, profit, totalReturn } = state;
 
-	const handleCalculate = () => e => {
+	const handleCalculate = () => {
 		//* For validation at least one selection odds need to be correct and stake
 		let inputs = Object.values(selections).map(v => v.odds);
 		if (isOneInputValid(inputs) && isValidInputStrict(stake)) {
@@ -45,24 +45,8 @@ export default function Dutching() {
 		}
 	};
 
-	const handleClear = () => e => {
+	const handleClear = () => {
 		dispatch({ type: "CLEAR_CALCULATION" });
-	};
-
-	const renderResults = () => {
-		return (
-			<>
-				<Grid item xs={2}>
-					<TextField required label="Stake" className={classes.selection} />
-				</Grid>
-				<Grid item xs={2}>
-					<TextField disabled label="Net Profit" className={classes.result} />
-				</Grid>
-				<Grid item xs={2}>
-					<TextField disabled label="Gross Profit" className={classes.result} />
-				</Grid>
-			</>
-		);
 	};
 
 	return (
@@ -213,10 +197,10 @@ export default function Dutching() {
 				<TextField disabled label="Profit" className={classes.resultMain} value={profit} />
 			</Grid>
 			<Grid item xs={12}>
-				<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate()}>
+				<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
 					Calculate
 				</Button>
-				<Button variant="contained" color="primary" className={classes.clearBtn} onClick={handleClear()}>
+				<Button variant="contained" color="primary" className={classes.clearBtn} onClick={handleClear}>
 					Clear
 				</Button>
 			</Grid>

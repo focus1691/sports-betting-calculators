@@ -6,8 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Chip from "@material-ui/core/Chip";
 import validator from "validator";
-import { decimalFromFraction } from "../../utils/calculators/OddsConverter";
-import calculatorStyle from "../../jss/calculator";
+import { decimalFromFraction } from "../../../utils/calculators/OddsConverter";
+import calculatorStyle from "../../../jss/calculator";
 
 const useStyles = makeStyles(theme => ({
 	...calculatorStyle(theme),
@@ -28,11 +28,11 @@ export default function FracToDec() {
 		setFraction(e.target.value);
 	};
 
-	const handleCalculate = () => e => {
+	const handleCalculate = () => {
 		setDecimal(decimalFromFraction(fraction));
 	};
 
-	const handleClear = () => e => {
+	const handleClear = () => {
 		setFraction("");
 		setDecimal("");
 	};
@@ -45,13 +45,13 @@ export default function FracToDec() {
 				</Grid>
 				<Grid container className={classes.container}>
 				<Grid item xs={12}>
-					<TextField required label="Fraction e.g. 5/2" value={fraction} onChange={handleFractionChange()} className={classes.selection}/>
+					<TextField required label="Fraction e.g. 5/2" value={fraction} onChange={handleFractionChange} className={classes.selection}/>
 				</Grid>
 				<Grid item xs={12}>
-					<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate()}>
+					<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
 						Calculate
 					</Button>
-					<Button variant="contained" color="primary" className={classes.clearBtn} onClick={handleClear()}>
+					<Button variant="contained" color="primary" className={classes.clearBtn} onClick={handleClear}>
 						Clear
 					</Button>
 				</Grid>
@@ -64,4 +64,4 @@ export default function FracToDec() {
 			</Grid>
 		</div>
 	);
-}
+};
