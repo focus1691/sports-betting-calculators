@@ -2,7 +2,6 @@ import React, { useReducer } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
 import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
 import { Paper } from "@material-ui/core";
@@ -22,13 +21,6 @@ const useStyles = makeStyles(theme => ({
 		border: "1px solid #e6e6e6",
 		padding: theme.spacing(1)
 	},
-	result: {
-		margin: theme.spacing(1)
-	},
-	resultTitle: {
-		textDecoration: "underline",
-		textAlign: "center"
-	}
 }));
 
 export default function Lay() {
@@ -102,6 +94,42 @@ export default function Lay() {
 					<TextField required label="Back Commission" value={state.backCommission} onChange={e => dispatch({ type: "SET_BACK_COMMISSION", payload: e.target.value })} className={classes.selection} />
 					<TextField required label="Lay Commission" value={state.layCommission} onChange={e => dispatch({ type: "SET_LAY_COMMISSION", payload: e.target.value })} className={classes.selection} />
 				</Grid>
+				<Grid container xs={12} spacing={1} style={{ display: state.calculationMade ? "" : "none" }}>
+					<Grid item xs={4}>
+						<Paper className={classes.resultTextArea}>
+							<Typography className={classes.resultTitle} variant="h6">
+								UNDER LAY
+							</Typography>
+							<Typography className={classes.resultItem}>{`lay ${underStake} at odds ${layOdds}`}</Typography>
+							<Typography className={classes.resultItem}>{`Liability is ${underLiability}`}</Typography>
+							<Typography className={classes.resultItem}>{`Overall position if win ${underWin}`}</Typography>
+							<Typography className={classes.resultItem}>{`Overall position if lose ${underLose}`}</Typography>
+						</Paper>
+					</Grid>
+					<Grid item xs={4}>
+						<Paper className={classes.resultTextArea}>
+							<Typography className={classes.resultTitle} variant="h6">
+								STANDARD LAY
+							</Typography>
+							<Typography className={classes.resultItem}>{`lay ${standardStake} at odds ${layOdds}`}</Typography>
+							<Typography className={classes.resultItem}>{`Liability is ${standardLiability}`}</Typography>
+							<Typography className={classes.resultItem}>{`Overall position if win ${standardWin}`}</Typography>
+							<Typography className={classes.resultItem}>{`Overall position if lose ${standardLose}`}</Typography>
+						</Paper>
+					</Grid>
+					<Grid item xs={4}>
+						<Paper className={classes.resultTextArea}>
+							<Typography className={classes.resultTitle} variant="h6">
+								OVER LAY
+							</Typography>
+							<Typography className={classes.resultItem}>{`lay ${overStake} at odds ${layOdds}`}</Typography>
+							<Typography className={classes.resultItem}>{`Liability is ${overLiability}`}</Typography>
+							<Typography className={classes.resultItem}>{`Overall position if win ${overWin}`}</Typography>
+							<Typography className={classes.resultItem}>{`Overall position if lose ${overLose}`}</Typography>
+						</Paper>
+					</Grid>
+				</Grid>
+
 				<Grid item xs={12}>
 					<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
 						Calculate
@@ -111,44 +139,6 @@ export default function Lay() {
 					</Button>
 				</Grid>
 			</Grid>
-			<Divider variant="middle" />
-			<div className={classes.resultSection} style={{ display: state.calculationMade ? "" : "none" }}>
-				<Grid container xs={12} spacing={1} item={true}>
-					<Grid xs={4} item={true}>
-						<Paper className={classes.result}>
-							<Typography className={classes.resultTitle} variant="h6">
-								UNDER LAY
-							</Typography>
-							<Typography>{`lay ${underStake} at odds ${layOdds}`}</Typography>
-							<Typography>{`Liability is ${underLiability}`}</Typography>
-							<Typography>{`Overall position if win ${underWin}`}</Typography>
-							<Typography>{`Overall position if lose ${underLose}`}</Typography>
-						</Paper>
-					</Grid>
-					<Grid xs={4} item={true}>
-						<Paper className={classes.result}>
-							<Typography className={classes.resultTitle} variant="h6">
-								STANDARD LAY
-							</Typography>
-							<Typography>{`lay ${standardStake} at odds ${layOdds}`}</Typography>
-							<Typography>{`Liability is ${standardLiability}`}</Typography>
-							<Typography>{`Overall position if win ${standardWin}`}</Typography>
-							<Typography>{`Overall position if lose ${standardLose}`}</Typography>
-						</Paper>
-					</Grid>
-					<Grid xs={4} item={true}>
-						<Paper className={classes.result}>
-							<Typography className={classes.resultTitle} variant="h6">
-								OVER LAY
-							</Typography>
-							<Typography>{`lay ${overStake} at odds ${layOdds}`}</Typography>
-							<Typography>{`Liability is ${overLiability}`}</Typography>
-							<Typography>{`Overall position if win ${overWin}`}</Typography>
-							<Typography>{`Overall position if lose ${overLose}`}</Typography>
-						</Paper>
-					</Grid>
-				</Grid>
-			</div>
 		</>
 	);
-}
+};

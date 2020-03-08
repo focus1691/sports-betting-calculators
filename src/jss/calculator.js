@@ -1,4 +1,5 @@
 import resultChipStyle from "./ResultChip";
+import resultTextArea from "./ResultTextArea";
 
 const calculatorStyle = theme => ({
 	container: {
@@ -133,6 +134,21 @@ const calculatorStyle = theme => ({
 	},
 	resultChip: { 
 		...resultChipStyle
+	},
+	resultTextArea: {
+		...resultTextArea,
+		margin: theme.spacing(1),
+		padding: theme.spacing(2)
+	},
+	resultTitle: {
+		textDecoration: "underline",
+		textAlign: "center"
+	},
+	resultItem: {
+		display: "list-item",
+		listStyleType: "disc",
+		listStylePosition: "inside",
+		padding: theme.spacing(1)
 	},
 	calculateBtn: {
 		margin: theme.spacing(1),
