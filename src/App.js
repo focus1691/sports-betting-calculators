@@ -4,8 +4,6 @@ import PermanentDrawerLeft from "./components/sidebar/Sidebar";
 import renderCalculator from "./utils/RenderCalculator";
 import { useCookies } from 'react-cookie';
 
-const camelCase = require("camelcase");
-
 const useStyles = makeStyles(theme => ({
 	root: {
 		display: "flex"

@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { addBonusBet } from "../../../actions/bonusActions";
+import { createBonusBet } from "../../../utils/constants/table/Bonus";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import AddIcon from '@material-ui/icons/Add';
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
@@ -10,7 +15,7 @@ import { calculateBonusBet } from "../../../utils/calculators/BonusBet";
 
 const useStyles = makeStyles(theme => ({ ...calculatorStyle(theme) }));
 
-export default function BonusBet() {
+const BonusBetCalculator = ({onReceiveBonusBet}) => {
 	const classes = useStyles();
 	const [bonusBet, setBonusBet] = useState("");
 	const [outcome1, setOutcome1] = useState("");
@@ -28,6 +33,16 @@ export default function BonusBet() {
 			if (!oddsOne) setOddsOne("");
 			if (!oddsTwo) setOddsTwo("");
 		}
+	};
+
+	const handleAddBonusBet = () => {
+		if (isInputsValid([bonusBet, oddsOne, oddsTwo])) {
+			const {stake, profit, bonus, other} = calculateBonusBet(outcome1, outcome2, oddsOne, oddsTwo, bonusBet);
+			
+			//! dispatch to redux store here
+			onReceiveBonusBet(createBonusBet(bonusBet, outcome1, oddsOne, bonus, other, oddsTwo, stake, profit));
+
+		} 
 	};
 
 	const handleClear = () => e => {
@@ -80,7 +95,18 @@ export default function BonusBet() {
 				<Button variant="contained" color="primary" className={classes.clearBtn} onClick={handleClear()}>
 					Clear
 				</Button>
+				<IconButton color="inherit" className={classes.addBtn} aria-label="Add" edge="start" onClick={handleAddBonusBet}>
+					<AddIcon />
+				</IconButton>
 			</Grid>
 		</Grid>
 	);
-}
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+		onReceiveBonusBet: bonusBet => dispatch(addBonusBet(bonusBet))
+	};
+};
+
+export default connect(null, mapDispatchToProps)(BonusBetCalculator);

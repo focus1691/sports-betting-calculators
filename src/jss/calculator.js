@@ -147,6 +147,11 @@ const calculatorStyle = theme => ({
 			background: "#000"
 		}
 	},
+	addBtn: {
+		color: '#fff',
+		margin: theme.spacing(2),
+		border: '1px solid #ff8f46'
+	}
 });
 
 export default calculatorStyle;

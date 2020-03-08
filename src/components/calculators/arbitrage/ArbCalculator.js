@@ -4,6 +4,8 @@ import { addArb } from "../../../actions/arbActions";
 import { createArb } from "../../../utils/constants/table/Arbitrage";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import AddIcon from '@material-ui/icons/Add';
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import { isValidInput, isInputsValid } from "../../../utils/sanitiser/NumberSanitiser";
@@ -22,15 +24,22 @@ const ArbCalculator = ({onReceiveArb}) => {
 	const handleCalculate = () => e => {
 		if (isInputsValid([betOne, betTwo, stake])) {
 			let calculatedArb = calculateArb(stake, betOne, betTwo, 2);
-			const {stake1, payout1, oddsTwo, stake2, payout2, totalPayout, profit, roi} = calculateArb;
 			setArb(calculatedArb);			
-			onReceiveArb(createArb({betOne, stake1, payout1, oddsTwo, stake2, payout2, totalPayout, profit, roi}));
 		} else {
 			if (!isValidInput(betOne)) setBetOne("");
 			if (!isValidInput(betTwo)) setBetTwo("");
 			if (!isValidInput(stake)) setStake("");
 			setArb(undefined);
 		}
+	};
+
+	const handleAddArb = () => {
+		if (isInputsValid([betOne, betTwo, stake])) {
+			const {stake1, payout1, stake2, payout2, totalPayout, profit, roi} = calculateArb(stake, betOne, betTwo, 2);
+
+			//! dispatch to redux store here
+			onReceiveArb(createArb(betOne, stake1, payout1, betTwo, stake2, payout2, totalPayout, profit, roi));
+		} 
 	};
 
 	const handleClear = () => e => {
@@ -79,6 +88,9 @@ const ArbCalculator = ({onReceiveArb}) => {
 				<Button variant="contained" color="primary" className={classes.clearBtn} onClick={handleClear()}>
 					Clear
 				</Button>
+				<IconButton color="inherit" className={classes.addBtn} aria-label="Add" edge="start" onClick={handleAddArb}>
+					<AddIcon />
+				</IconButton>
 			</Grid>
 			{arb ? renderResults() : null}
 		</Grid>

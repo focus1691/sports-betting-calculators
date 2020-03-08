@@ -1,53 +1,31 @@
 import React from "react";
+import { connect } from "react-redux";
+import * as actions from "../../../actions/bonusActions";
 import { makeStyles } from "@material-ui/core/styles";
 import MaterialTable from "material-table";
 import tableStyle from "../../../jss/Table";
 import TableIcons from "../../../mui/TableIcons";
+import { columns } from "../../../utils/constants/table/Bonus";
 
 const useStyles = makeStyles(theme => ({ ...tableStyle(theme) }));
 
-const BonusTable = () => {
+const BonusTable = ({bonusBets, setBonusBets, editBonusBet, deleteBonusBet}) => {
 	const classes = useStyles();
-	const [state, setState] = React.useState({
-		columns: [
-			{ title: "Name", field: "name" },
-			{ title: "Surname", field: "surname" },
-			{ title: "Birth Year", field: "birthYear", type: "numeric" },
-			{
-				title: "Birth Place",
-				field: "birthCity",
-				lookup: { 34: "İstanbul", 63: "Şanlıurfa" }
-			}
-		],
-		data: [
-			{ name: "Mehmet", surname: "Baran", birthYear: 1987, birthCity: 63 },
-			{
-				name: "Zerya Betül",
-				surname: "Baran",
-				birthYear: 2017,
-				birthCity: 34
-			}
-		]
-	});
 
 	return (
 		<div className={classes.table}>
 			<MaterialTable
-				title="Editable Example"
+				title=""
 				icons={TableIcons}
-				columns={state.columns}
-				data={state.data}
+				columns={columns}
+				data={bonusBets}
 				editable={{
 					onRowUpdate: (newData, oldData) =>
 						new Promise(resolve => {
 							setTimeout(() => {
 								resolve();
 								if (oldData) {
-									setState(prevState => {
-										const data = [...prevState.data];
-										data[data.indexOf(oldData)] = newData;
-										return { ...prevState, data };
-									});
+									editBonusBet({ oldBonusBet: oldData, newBonusBet: newData });
 								}
 							}, 600);
 						}),
@@ -55,11 +33,7 @@ const BonusTable = () => {
 						new Promise(resolve => {
 							setTimeout(() => {
 								resolve();
-								setState(prevState => {
-									const data = [...prevState.data];
-									data.splice(data.indexOf(oldData), 1);
-									return { ...prevState, data };
-								});
+								deleteBonusBet({ oldBonusBet: oldData });
 							}, 600);
 						})
 				}}
@@ -68,4 +42,18 @@ const BonusTable = () => {
 	);
 };
 
-export default BonusTable;
+const mapStateToProps = state => {
+	return {
+		bonusBets: state.bonusBets
+	};
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+		setBonusBets: bonusBets => dispatch(actions.setBonusBets(bonusBets)),
+		editBonusBet: data => dispatch(actions.editBonusBet(data)),
+		deleteBonusBet: data => dispatch(actions.deleteBonusBet(data))
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BonusTable);
