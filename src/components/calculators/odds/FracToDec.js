@@ -24,7 +24,7 @@ export default function FracToDec() {
 	const [fraction, setFraction] = useState("");
 	const [decimal, setDecimal] = useState("");
 
-	const handleFractionChange = () => e => {
+	const handleFractionChange = (e) => {
 		setFraction(e.target.value);
 	};
 
@@ -45,7 +45,7 @@ export default function FracToDec() {
 				</Grid>
 				<Grid container className={classes.container}>
 				<Grid item xs={12}>
-					<TextField required label="Fraction e.g. 5/2" value={fraction} onChange={handleFractionChange} className={classes.selection}/>
+					<TextField required label="Fraction e.g. 5/2" value={fraction} onChange={e => handleFractionChange(e)} className={classes.selection}/>
 				</Grid>
 				<Grid item xs={12}>
 					<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
@@ -57,7 +57,7 @@ export default function FracToDec() {
 				</Grid>
 				{!validator.isEmpty(decimal) && !validator.isEmpty(decimal) ? (
 					<Grid item xs={6}>
-						<Chip variant="outlined" size="small" label={decimal} clickable color="primary" />
+						<Chip variant="outlined" size="small" label={decimal} clickable className={classes.resultChip} />
 					</Grid>
 				) : null}
 				</Grid>

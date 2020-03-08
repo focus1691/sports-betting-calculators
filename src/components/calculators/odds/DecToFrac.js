@@ -25,7 +25,7 @@ export default function Lay() {
     const [odds, setOdds] = useState("");
     const [fraction, setFraction] = useState("");
 
-    const handleOddsChange = () => e => {
+    const handleOddsChange = (e) => {
         isValidInput(e.target.value) && setOdds(e.target.value);
     };
 
@@ -46,7 +46,7 @@ export default function Lay() {
                 </Grid>
                 <Grid container className={classes.container}>
                     <Grid item xs={12}>
-                        <TextField required label="Odds e.g. 2.56" value={odds} onChange={handleOddsChange} className={classes.selection} />
+                        <TextField required label="Odds e.g. 2.56" value={odds} onChange={e => handleOddsChange(e)} className={classes.selection} />
                     </Grid>
                     <Grid item xs={12}>
                         <Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
@@ -63,7 +63,7 @@ export default function Lay() {
                                 size="small"
                                 label={fraction}
                                 clickable
-                                color="primary"
+                                className={classes.resultChip}
                             />
                         </Grid>
                         : null}
