@@ -39,11 +39,11 @@ export default function Staking() {
 		}
 	};
 
-	const handleCalculate = () => e => {
+	const handleCalculate = () => {
 		setStake((balance / risk).toString());
 	};
 
-	const handleClear = () => e => {
+	const handleClear = () => {
 		setRisk("");
 		setBalance("");
 		setStake("");
@@ -56,30 +56,30 @@ export default function Staking() {
 					<Typography variant="h1">Staking</Typography>
 				</Grid>
 				<Grid container className={classes.container}>
-					<Grid item xs={4}>
+					<Grid item xs={3}>
 						<TextField required label="Bank Balance" value={balance} className={classes.selection} onChange={handleChangeBalance()} />
 					</Grid>
-					<Grid item xs={4}>
+					<Grid item xs={3}>
 						<Select native value={risk} className={classes.select} onChange={e => setRisk(e.target.value)}>
 							<option value={200}>Conservative</option>
 							<option value={100}>Aggressive</option>
 						</Select>
 					</Grid>
+					<Grid item xs={4}>
+						<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
+							Calculate
+						</Button>
+						<Button variant="contained" color="primary" className={classes.clearBtn} onClick={handleClear}>
+							Clear
+						</Button>
+					</Grid>
 					{!validator.isEmpty(stake) && !validator.isEmpty(balance) ? (
-						<Grid item xs={4}>
+						<Grid item xs={2}>
 							<Chip variant="outlined" size="small" label={stake} className={classes.chip} clickable color="primary" />
 						</Grid>
 					) : null}
-					<Grid item xs={12}>
-						<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate()}>
-							Calculate
-					</Button>
-						<Button variant="contained" color="primary" className={classes.clearBtn} onClick={handleClear()}>
-							Clear
-					</Button>
-					</Grid>
 				</Grid>
 			</Grid>
 		</div>
 	);
-}
+};
