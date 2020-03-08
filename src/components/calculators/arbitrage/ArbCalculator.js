@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { addArb } from "../../../actions/arbActions";
+import { createArb } from "../../../utils/constants/table/Arbitrage";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -9,7 +12,7 @@ import calculatorStyle from "../../../jss/calculator";
 
 const useStyles = makeStyles(theme => ({ ...calculatorStyle(theme) }));
 
-export default function Arbitrage() {
+const ArbCalculator = ({onReceiveArb}) => {
 	const classes = useStyles();
 	const [betOne, setBetOne] = useState("");
 	const [betTwo, setBetTwo] = useState("");
@@ -19,7 +22,9 @@ export default function Arbitrage() {
 	const handleCalculate = () => e => {
 		if (isInputsValid([betOne, betTwo, stake])) {
 			let calculatedArb = calculateArb(stake, betOne, betTwo, 2);
-			setArb(calculatedArb);
+			const {stake1, payout1, oddsTwo, stake2, payout2, totalPayout, profit, roi} = calculateArb;
+			setArb(calculatedArb);			
+			onReceiveArb(createArb({betOne, stake1, payout1, oddsTwo, stake2, payout2, totalPayout, profit, roi}));
 		} else {
 			if (!isValidInput(betOne)) setBetOne("");
 			if (!isValidInput(betTwo)) setBetTwo("");
@@ -58,17 +63,16 @@ export default function Arbitrage() {
 
 	return (
 		<Grid container className={classes.container}>
-			<Grid item xs={4}>
+			<Grid item xs={3}>
 				<TextField required label="Bet 1 odds" value={betOne} onChange={e => isValidInput(e.target.value) && setBetOne(e.target.value)} className={classes.selection} />
 			</Grid>
-			<Grid item xs={4}>
+			<Grid item xs={3}>
 				<TextField required label="Bet 2 odds" value={betTwo} onChange={e => isValidInput(e.target.value) && setBetTwo(e.target.value)} className={classes.selection} />
 			</Grid>
-			<Grid item xs={4}>
+			<Grid item xs={2}>
 				<TextField required label="Stake" value={stake} onChange={e => isValidInput(e.target.value) && setStake(e.target.value)} className={classes.selection} />
 			</Grid>
-			{arb ? renderResults() : null}
-			<Grid item xs={12}>
+			<Grid item xs={4}>
 				<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate()}>
 					Calculate
 				</Button>
@@ -76,6 +80,15 @@ export default function Arbitrage() {
 					Clear
 				</Button>
 			</Grid>
+			{arb ? renderResults() : null}
 		</Grid>
 	);
 }
+
+const mapDispatchToProps = dispatch => {
+	return {
+		onReceiveArb: arb => dispatch(addArb(arb))
+	};
+};
+
+export default connect(null, mapDispatchToProps)(ArbCalculator);

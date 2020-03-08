@@ -1,7 +1,7 @@
 const headerStyle = theme => ({
 	root: {
 		margin: "auto",
-		maxWidth: "60%",
+		maxWidth: "80%",
 		border: "1px solid #e6e6e6",
 		padding: theme.spacing(1)
     },

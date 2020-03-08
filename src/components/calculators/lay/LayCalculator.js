@@ -7,8 +7,6 @@ import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
 import { Paper } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
-import IconButton from "@material-ui/core/IconButton";
-import TableChartIcon from "@material-ui/icons/TableChart";
 import { reducer, initialState } from "../../../reducers/layReducer";
 import { getStandardLayStake, getStandardLiability, getStandardOverAllPositionIfWin, getStandardOverAllPositionIfLoss } from "../../../utils/calculators/LayBet/standard";
 import { getOverlayStake, getOverlayLiability, getOverlayOverAllPositionIfWin, getOverlayOverAllPositionIfLoss } from "../../../utils/calculators/LayBet/over";
