@@ -12,6 +12,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Staking
 - Odds
 
+![Preview](https://github.com/traderjosh/sports-betting-calculator/blob/master/public/preview.png)
+![Preview](https://github.com/traderjosh/sports-betting-calculator/blob/master/public/preview2.png)
+
 ## Available Scripts
 
 ### `npm start`
