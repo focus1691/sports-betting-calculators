@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+https://focused-golick-101211.netlify.com/* https://www.topbetcalculator.com/:splat 301!
