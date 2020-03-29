@@ -7,7 +7,6 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import SportsSoccerIcon from "@material-ui/icons/SportsSoccer";
-import Header from "../Header";
 import sidebarStyle from "../../jss/Sidebar";
 
 const useStyles = makeStyles(theme => ({ ...sidebarStyle(theme) }));
@@ -17,7 +16,6 @@ export default function PermanentDrawerLeft({ calculator, setCalculator }) {
 	const classes = useStyles();
 	return (
 		<div className={classes.root}>
-			<Header />
 			<Drawer
 				className={classes.drawer}
 				variant="permanent"
@@ -29,7 +27,7 @@ export default function PermanentDrawerLeft({ calculator, setCalculator }) {
 				<Divider />
 				<List>
 					{calculatorList.map((text, index) => (
-						<ListItem button key={text} onClick={() => setCalculator(text)} selected={calculator === text}>
+						<ListItem button key={text} onClick={() => setCalculator(text)} selected={calculator === text} className={classes.calcButton}>
 							<ListItemIcon className={classes.icon}>{<SportsSoccerIcon />}</ListItemIcon>
 							<ListItemText primary={text} />
 						</ListItem>

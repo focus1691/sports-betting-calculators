@@ -6,8 +6,7 @@ const calculatorStyle = theme => ({
 		border: "3px dotted #c58800",
 		boxShadow: "inset 0 -1px 0 0 #000, inset 0 1px 0 0 #000, 0 1px 0 0 #000, 0 -1px 0 0 #000",
 		marginBottom: "1px",
-
-		background: "#404040",
+		background: "#2d2d2d",
 		'& > *': {
 			padding: theme.spacing(2),
 		},

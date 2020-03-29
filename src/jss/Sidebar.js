@@ -6,7 +6,8 @@ const sidebarStyle = theme => ({
 	},
 	appBar: {
 		width: `calc(100% - ${drawerWidth}px)`,
-		marginLeft: drawerWidth
+		marginLeft: drawerWidth,
+		paddingTop: '20px'
 	},
 	drawer: {
 		width: drawerWidth,
@@ -15,7 +16,12 @@ const sidebarStyle = theme => ({
 	drawerPaper: {
 		width: drawerWidth,
 		color: "#fff",
-		background: "#404040"
+		background: "#2d2d2d",
+		flexDirection: "inherit",
+		paddingTop: "7%"
+	},
+	calcButton: {
+		display: "inline-flex"
 	},
 	toolbar: theme.mixins.toolbar,
 	content: {
