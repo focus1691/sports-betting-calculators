@@ -3,6 +3,9 @@ import resultTextArea from "./ResultTextArea";
 
 const calculatorStyle = theme => ({
 	container: {
+		display: "flex",
+		alignItems: "center",
+		padding: theme.spacing(2),
 		border: "3px dotted #c58800",
 		boxShadow: "inset 0 -1px 0 0 #000, inset 0 1px 0 0 #000, 0 1px 0 0 #000, 0 -1px 0 0 #000",
 		marginBottom: "1px",
@@ -23,15 +26,15 @@ const calculatorStyle = theme => ({
 		}
 	},
 	selection: {
-		padding: theme.spacing(1),
+		display: "flex",
 		'& .MuiFormLabel-root': {
-			borderColor: 'red'
+			borderColor: 'red',
 		},
 		'& .MuiInputLabel-formControl': {
 			borderColor: 'red'
 		},
 		'& .MuiInputBase-input': {
-			color: '#fff'
+			color: '#fff',
 		},
 		'& .MuiInputLabel-animated': {
 			color: '#ff8f46'
@@ -99,6 +102,7 @@ const calculatorStyle = theme => ({
 		}
 	},
 	resultText: {
+		marginTop: theme.spacing(4),
 		color: '#fff',
 		borderBottom: '1px dashed #78e7fc',
 		fontWeight: "bold"
@@ -150,7 +154,6 @@ const calculatorStyle = theme => ({
 		padding: theme.spacing(1)
 	},
 	calculateBtn: {
-		margin: theme.spacing(1),
 		background: '#095609',
 		color: '#fff',
 		border: '2px solid #fff',
@@ -169,7 +172,7 @@ const calculatorStyle = theme => ({
 	},
 	addBtn: {
 		color: '#fff',
-		margin: theme.spacing(2),
+		margin: theme.spacing(1),
 		border: '1px solid #ff8f46'
 	}
 });

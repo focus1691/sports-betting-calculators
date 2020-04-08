@@ -83,19 +83,19 @@ export default function Lay() {
 						<option value={"SR"}>SR</option>
 					</Select>
 				</Grid>
-				<Grid item xs={4}>
+				<Grid item lg={4} md={4} xs={12}>
 					<TextField required label="Bet Stake" value={state.betStake} onChange={e => dispatch({ type: "SET_BACK_STAKE", payload: e.target.value })} className={classes.selection} />
 				</Grid>
-				<Grid item xs={4}>
+				<Grid item lg={4} md={4} xs={12}>
 					<TextField required label="Back Odds" value={state.backOdds} onChange={e => dispatch({ type: "SET_BACK_ODDS", payload: e.target.value })} className={classes.selection} />
 					<TextField required label="Lay Odds" value={state.layOdds} onChange={e => dispatch({ type: "SET_LAY_ODDS", payload: e.target.value })} className={classes.selection} />
 				</Grid>
-				<Grid item xs={4}>
+				<Grid item lg={4} md={4} xs={12}>
 					<TextField required label="Back Commission" value={state.backCommission} onChange={e => dispatch({ type: "SET_BACK_COMMISSION", payload: e.target.value })} className={classes.selection} />
 					<TextField required label="Lay Commission" value={state.layCommission} onChange={e => dispatch({ type: "SET_LAY_COMMISSION", payload: e.target.value })} className={classes.selection} />
 				</Grid>
 				<Grid container xs={12} spacing={1} style={{ display: state.calculationMade ? "" : "none" }}>
-					<Grid item xs={4}>
+					<Grid item lg={4} md={4} sm={12} xs={12}>
 						<Paper className={classes.resultTextArea}>
 							<Typography className={classes.resultTitle} variant="h6">
 								UNDER LAY
@@ -106,7 +106,7 @@ export default function Lay() {
 							<Typography className={classes.resultItem}>{`Overall position if lose ${underLose}`}</Typography>
 						</Paper>
 					</Grid>
-					<Grid item xs={4}>
+					<Grid item lg={4} md={4} sm={12} xs={12}>
 						<Paper className={classes.resultTextArea}>
 							<Typography className={classes.resultTitle} variant="h6">
 								STANDARD LAY
@@ -117,7 +117,7 @@ export default function Lay() {
 							<Typography className={classes.resultItem}>{`Overall position if lose ${standardLose}`}</Typography>
 						</Paper>
 					</Grid>
-					<Grid item xs={4}>
+					<Grid item lg={4} md={4} sm={12} xs={12}>
 						<Paper className={classes.resultTextArea}>
 							<Typography className={classes.resultTitle} variant="h6">
 								OVER LAY

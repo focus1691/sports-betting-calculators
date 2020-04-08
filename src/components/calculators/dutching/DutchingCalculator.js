@@ -51,7 +51,7 @@ export default function Dutching() {
 
 	return (
 		<Grid container className={classes.container}>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
 					required
 					label="Selection 1 odds"
@@ -60,10 +60,10 @@ export default function Dutching() {
 					onChange={e => dispatch({ type: "SET_SELECTION", payload: { selectionId: "sel1", odds: e.target.value } })}
 				/>
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField disabled label="Stake" className={classes.result} value={selections.sel1.stake} />
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
 					label="Selection 2"
 					className={classes.selection}
@@ -71,10 +71,10 @@ export default function Dutching() {
 					onChange={e => dispatch({ type: "SET_SELECTION", payload: { selectionId: "sel2", odds: e.target.value } })}
 				/>
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField disabled label="Stake" className={classes.result} value={selections.sel2.stake} />
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
 					label="Selection 3"
 					className={classes.selection}
@@ -82,11 +82,11 @@ export default function Dutching() {
 					onChange={e => dispatch({ type: "SET_SELECTION", payload: { selectionId: "sel3", odds: e.target.value } })}
 				/>
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField disabled label="Stake" className={classes.result} value={selections.sel3.stake} />
 			</Grid>
 
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
 					label="Selection 4"
 					className={classes.selection}
@@ -94,10 +94,10 @@ export default function Dutching() {
 					onChange={e => dispatch({ type: "SET_SELECTION", payload: { selectionId: "sel4", odds: e.target.value } })}
 				/>
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField disabled label="Stake" className={classes.result} value={selections.sel4.stake} />
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
 					label="Selection 5"
 					className={classes.selection}
@@ -105,10 +105,10 @@ export default function Dutching() {
 					onChange={e => dispatch({ type: "SET_SELECTION", payload: { selectionId: "sel5", odds: e.target.value } })}
 				/>
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField disabled label="Stake" className={classes.result} value={selections.sel5.stake} />
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
 					label="Selection 6"
 					className={classes.selection}
@@ -116,11 +116,11 @@ export default function Dutching() {
 					onChange={e => dispatch({ type: "SET_SELECTION", payload: { selectionId: "sel6", odds: e.target.value } })}
 				/>
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField disabled label="Stake" className={classes.result} value={selections.sel6.stake} />
 			</Grid>
 
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
 					label="Selection 7"
 					className={classes.selection}
@@ -128,10 +128,10 @@ export default function Dutching() {
 					onChange={e => dispatch({ type: "SET_SELECTION", payload: { selectionId: "sel7", odds: e.target.value } })}
 				/>
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField disabled label="Stake" className={classes.result} value={selections.sel7.stake} />
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
 					label="Selection 8"
 					className={classes.selection}
@@ -139,10 +139,10 @@ export default function Dutching() {
 					onChange={e => dispatch({ type: "SET_SELECTION", payload: { selectionId: "sel8", odds: e.target.value } })}
 				/>
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField disabled label="Stake" className={classes.result} value={selections.sel8.stake} />
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
 					label="Selection 9"
 					className={classes.selection}
@@ -150,11 +150,11 @@ export default function Dutching() {
 					onChange={e => dispatch({ type: "SET_SELECTION", payload: { selectionId: "sel9", odds: e.target.value } })}
 				/>
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField disabled label="Stake" className={classes.result} value={selections.sel9.stake} />
 			</Grid>
 
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
 					label="Selection 10"
 					className={classes.selection}
@@ -162,10 +162,10 @@ export default function Dutching() {
 					onChange={e => dispatch({ type: "SET_SELECTION", payload: { selectionId: "sel10", odds: e.target.value } })}
 				/>
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField disabled label="Stake" className={classes.result} value={selections.sel10.stake} />
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
 					label="Selection 11"
 					className={classes.selection}
@@ -173,10 +173,10 @@ export default function Dutching() {
 					onChange={e => dispatch({ type: "SET_SELECTION", payload: { selectionId: "sel11", odds: e.target.value } })}
 				/>
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField disabled label="Stake" className={classes.result} value={selections.sel11.stake} />
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
 					label="Selection 12"
 					className={classes.selection}
@@ -184,16 +184,16 @@ export default function Dutching() {
 					onChange={e => dispatch({ type: "SET_SELECTION", payload: { selectionId: "sel12", odds: e.target.value } })}
 				/>
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField disabled label="Stake" className={classes.result} value={selections.sel12.stake} />
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField label="Stake" className={classes.resultMain} value={stake} onChange={e => dispatch({ type: "SET_STAKE", payload: e.target.value })} />
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField disabled label="Total Return" className={classes.resultMain} value={totalReturn} />
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField disabled label="Profit" className={classes.resultMain} value={profit} />
 			</Grid>
 			<Grid item xs={12}>

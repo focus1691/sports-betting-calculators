@@ -54,13 +54,13 @@ const BonusBetCalculator = ({onReceiveBonusBet}) => {
 	const renderResults = () => {
 		return (
 			<>
-				<Grid item xs={4}>
+				<Grid item lg={3} md={6} xs={12}>
 					<Typography variant="h2" className={classes.resultText}>{`Use the £${calculation.bonusBet} bonus on ${calculation.bonus}`}</Typography>
 				</Grid>
-				<Grid item xs={4}>
+				<Grid item lg={3} md={6} xs={12}>
 					<Typography variant="h2" className={classes.resultText}>{`Stake £${calculation.stake} on ${calculation.other}`}</Typography>
 				</Grid>
-				<Grid item xs={4}>
+				<Grid item lg={3} md={6} xs={12}>
 					<Typography variant="h2" className={classes.resultText}>{`Total profit for either outcome £${calculation.profit}`}</Typography>
 				</Grid>
 			</>
@@ -69,26 +69,26 @@ const BonusBetCalculator = ({onReceiveBonusBet}) => {
 
 	return (
 		<Grid container className={classes.container}>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={6} xs={12}>
 				<TextField label="Bonus Bet" placeholder={"£5"} value={bonusBet} onChange={e => isValidInput(e.target.value) && setBonusBet(e.target.value)} className={classes.selection} />
 			</Grid>
 
-			<Grid item xs={2}>
+			<Grid item lg={2} md={6} xs={12}>
 				<TextField label="Name of outcome 1" placeholder={"Outcome 1"} value={outcome1} onChange={e => setOutcome1(e.target.value)} className={classes.selection} />
 			</Grid>
 
-			<Grid item xs={2}>
+			<Grid item lg={2} md={6} xs={12}>
 				<TextField label="Outcome 1 Odds" placeholder={"2.56"} value={oddsOne} onChange={e => isValidInput(e.target.value) && setOddsOne(e.target.value)} className={classes.selection} />
 			</Grid>
 
-			<Grid item xs={2}>
+			<Grid item lg={2} md={6} xs={12}>
 				<TextField label="Name of outcome 2" placeholder={"Outcome 2"} value={outcome2} onChange={e => setOutcome2(e.target.value)} className={classes.selection} />
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={6} xs={12}>
 				<TextField label="Outcome 2 Odds" placeholder={"2.56"} value={oddsTwo} onChange={e => isValidInput(e.target.value) && setOddsTwo(e.target.value)} className={classes.selection} />
 			</Grid>
 			{calculation ? renderResults() : null}
-			<Grid item xs={12}>
+			<Grid item lg={12} md={6} xs={12}>
 				<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate()}>
 					Calculate
 				</Button>

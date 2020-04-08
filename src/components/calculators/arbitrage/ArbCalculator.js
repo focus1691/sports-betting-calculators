@@ -54,16 +54,16 @@ const ArbCalculator = ({onReceiveArb}) => {
 	
 	return (
 		<Grid container className={classes.container}>
-			<Grid item xs={3}>
+			<Grid item lg={3} md={4} xs={12}>
 				<TextField required label="Bet 1 odds" value={betOne} onChange={e => isValidInput(e.target.value) && setBetOne(e.target.value)} className={classes.selection} />
 			</Grid>
-			<Grid item xs={3}>
+			<Grid item lg={3} md={4} xs={12}>
 				<TextField required label="Bet 2 odds" value={betTwo} onChange={e => isValidInput(e.target.value) && setBetTwo(e.target.value)} className={classes.selection} />
 			</Grid>
-			<Grid item xs={2}>
+			<Grid item lg={2} md={4} xs={12}>
 				<TextField required label="Stake" value={stake} onChange={e => isValidInput(e.target.value) && setStake(e.target.value)} className={classes.selection} />
 			</Grid>
-			<Grid item xs={4}>
+			<Grid item lg={4} md={8} xs={12}>
 				<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
 					Calculate
 				</Button>

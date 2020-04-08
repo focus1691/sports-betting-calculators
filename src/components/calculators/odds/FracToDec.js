@@ -13,10 +13,10 @@ const useStyles = makeStyles(theme => ({
 	...calculatorStyle(theme),
 	root: {
 		margin: "auto",
-		maxWidth: "30%",
+		maxWidth: "50%",
 		border: "1px solid #e6e6e6",
 		padding: theme.spacing(1)
-	},
+	}
 }));
 
 export default function FracToDec() {

@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     ...calculatorStyle(theme),
     root: {
         margin: "auto",
-        maxWidth: "30%",
+        maxWidth: "50%",
         border: "1px solid #e6e6e6",
         padding: theme.spacing(1)
     },
@@ -46,7 +46,7 @@ export default function Lay() {
                 </Grid>
                 <Grid container className={classes.container}>
                     <Grid item xs={12}>
-                        <TextField required label="Odds e.g. 2.56" value={odds} onChange={e => handleOddsChange(e)} className={classes.selection} />
+                        <TextField required label="Odds e.g. 2.56" value={odds} onChange={e => handleOddsChange(e)} className={classes.selection} alignItems="center" />
                     </Grid>
                     <Grid item xs={12}>
                         <Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>

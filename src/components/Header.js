@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 		marginLeft: drawerWidth,
 		zIndex: 2500,
 		position: 'fixed',
-		backgroundColor: "#1f221e"
+		background: 'linear-gradient(86deg, rgba(0,0,0,1) 26%, rgba(253,213,110,1) 53%, rgba(255,216,115,1) 76%, rgba(197,136,0,1) 100%)',
 	},
 	title: {
 		textAlign: 'center',

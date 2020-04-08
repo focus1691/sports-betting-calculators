@@ -56,16 +56,16 @@ export default function Staking() {
 					<Typography variant="h1">Staking</Typography>
 				</Grid>
 				<Grid container className={classes.container}>
-					<Grid item xs={3}>
+					<Grid item lg={3} md={3} sm={12} xs={12}>
 						<TextField required label="Bank Balance" value={balance} className={classes.selection} onChange={handleChangeBalance()} />
 					</Grid>
-					<Grid item xs={3}>
+					<Grid item lg={3} md={3} sm={12} xs={12}>
 						<Select native value={risk} className={classes.select} onChange={e => setRisk(e.target.value)}>
 							<option value={200}>Conservative</option>
 							<option value={100}>Aggressive</option>
 						</Select>
 					</Grid>
-					<Grid item xs={4}>
+					<Grid item lg={6} md={4} sm={12} xs={12}>
 						<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
 							Calculate
 						</Button>
