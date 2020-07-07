@@ -15,7 +15,13 @@ const useStyles = makeStyles(theme => ({
 		margin: "auto",
 		maxWidth: "50%",
 		border: "1px solid #e6e6e6",
-		padding: theme.spacing(1)
+		padding: theme.spacing(1),
+		[theme.breakpoints.down('md')]: {
+			maxWidth: '75%',
+		},
+		[theme.breakpoints.down('sm')]: {
+			maxWidth: '100%',
+		},
 	}
 }));
 
@@ -47,7 +53,7 @@ export default function FracToDec() {
 				<Grid item xs={12}>
 					<TextField required label="Fraction e.g. 5/2" value={fraction} onChange={e => handleFractionChange(e)} className={classes.selection}/>
 				</Grid>
-				<Grid item xs={12}>
+				<Grid item xs={12} className={classes.controls}>
 					<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
 						Calculate
 					</Button>

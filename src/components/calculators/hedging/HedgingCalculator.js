@@ -53,16 +53,16 @@ const HedgingCalculator = ({ onReceiveHedge }) => {
 
 	return (
 		<Grid container className={classes.container}>
-			<Grid item lg={2} md={4} sm={6} xs={12}>
+			<Grid item lg={4} md={4} sm={6} xs={12}>
 				<TextField label="Back Stake" className={classes.selection} value={backStake} onChange={e => dispatch({ type: "SET_BACK_STAKE", payload: e.target.value })} />
 			</Grid>
-			<Grid item lg={2} md={4} sm={6} xs={12}>
+			<Grid item lg={4} md={4} sm={6} xs={12}>
 				<TextField label="Back Price" className={classes.selection} value={backPrice} onChange={e => dispatch({ type: "SET_BACK_PRICE", payload: e.target.value })} />
 			</Grid>
-			<Grid item lg={2} md={4} sm={6} xs={12}>
+			<Grid item lg={4} md={4} sm={6} xs={12}>
 				<TextField label="Lay Price" className={classes.selection} value={layPrice} onChange={e => dispatch({ type: "SET_LAY_PRICE", payload: e.target.value })} />
 			</Grid>
-			<Grid item lg={2} md={4} sm={6} xs={12}>
+			<Grid item lg={4} md={4} sm={6} xs={12}>
 				<TextField
 					label="Commission (%)"
 					className={classes.selection}
@@ -72,7 +72,7 @@ const HedgingCalculator = ({ onReceiveHedge }) => {
 				/>
 			</Grid>
 			{calculationMade ? <HedgeResults amountToBet={amountToBet} profit={profit} totalStaked={totalStaked} totalReturned={totalReturned} style={classes.resultText} /> : null}
-			<Grid item lg={4} md={8} sm={12} xs={12} className={classes.controls}>
+			<Grid item lg={4} md={6} xs={12} className={classes.controls}>
 				<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
 					Calculate
 				</Button>

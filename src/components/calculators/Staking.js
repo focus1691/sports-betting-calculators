@@ -15,14 +15,17 @@ const useStyles = makeStyles(theme => ({
 	...calculatorStyle(theme),
 	root: {
 		margin: "auto",
-		maxWidth: "60%",
+		maxWidth: "75%",
 		border: "1px solid #e6e6e6",
-		padding: theme.spacing(1)
+		padding: theme.spacing(1),
+		[theme.breakpoints.down('md')]: {
+			maxWidth: '100%',
+		},
 	},
 	chip: {
 		...resultChipStyle,
-		margin: theme.spacing(3)
-	}
+		margin: theme.spacing(3),
+	},
 }));
 
 export default function Staking() {
@@ -56,16 +59,20 @@ export default function Staking() {
 					<Typography variant="h1">Staking</Typography>
 				</Grid>
 				<Grid container className={classes.container}>
-					<Grid item lg={3} md={3} sm={12} xs={12}>
+					<Grid item sm={9} xs={12}>
 						<TextField required label="Bank Balance" value={balance} className={classes.selection} onChange={handleChangeBalance()} />
 					</Grid>
-					<Grid item lg={3} md={3} sm={12} xs={12}>
-						<Select native value={risk} className={classes.select} onChange={e => setRisk(e.target.value)}>
+					<Grid item sm={3} xs={12} className={classes.selectContainer}>
+						<Select
+							native
+							value={risk}
+							className={classes.select}
+							onChange={e => setRisk(e.target.value)}>
 							<option value={200}>Conservative</option>
 							<option value={100}>Aggressive</option>
 						</Select>
 					</Grid>
-					<Grid item lg={6} md={4} sm={12} xs={12} className={classes.controls}>
+					<Grid item xs={12} className={classes.controls}>
 						<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
 							Calculate
 						</Button>

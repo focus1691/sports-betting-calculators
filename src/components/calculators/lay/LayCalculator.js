@@ -19,7 +19,13 @@ const useStyles = makeStyles(theme => ({
 		margin: "auto",
 		maxWidth: "70%",
 		border: "1px solid #e6e6e6",
-		padding: theme.spacing(1)
+		padding: theme.spacing(1),
+		[theme.breakpoints.down('md')]: {
+			maxWidth: '75%',
+		},
+		[theme.breakpoints.down('sm')]: {
+			maxWidth: '100%',
+		},
 	},
 }));
 
@@ -130,7 +136,7 @@ export default function Lay() {
 					</Grid>
 				</Grid>
 
-				<Grid item xs={12}>
+				<Grid item xs={12} className={classes.controls}>
 					<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
 						Calculate
 					</Button>

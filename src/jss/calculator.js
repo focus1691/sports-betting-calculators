@@ -13,6 +13,9 @@ const calculatorStyle = theme => ({
 		'& > *': {
 			padding: theme.spacing(2),
 		},
+		[theme.breakpoints.down('xs')]: {
+			padding: '0',
+		},
 	},
 	title: {
 		background: "#000",
@@ -26,9 +29,10 @@ const calculatorStyle = theme => ({
 		}
 	},
 	selection: {
+		padding: theme.spacing(1),
 		display: "flex",
 		'& .MuiFormLabel-root': {
-			borderColor: 'red',
+			margin: theme.spacing(1),
 		},
 		'& .MuiInputLabel-formControl': {
 			borderColor: 'red'
@@ -49,10 +53,13 @@ const calculatorStyle = theme => ({
 			'&:focused': {
 				borderColor: '#8CE7FC'
 			}
-		}
+		},
 	},
 	select: {
 		padding: theme.spacing(1),
+		'& .MuiFormLabel-root': {
+			margin: theme.spacing(1),
+		},
 		'& .MuiSelect-select': {
 			color: '#ff8f46',
 			'& option': {
@@ -74,10 +81,11 @@ const calculatorStyle = theme => ({
 		}
 	},
 	result: {
+		padding: theme.spacing(1),
 		margin: theme.spacing(1),
 		fontWeight: "bold",
 		'& .MuiFormLabel-root': {
-			borderColor: 'red'
+			padding: theme.spacing(1),
 		},
 		'& .MuiInputLabel-formControl': {
 			borderColor: 'red'
@@ -158,7 +166,7 @@ const calculatorStyle = theme => ({
 	},
 	controls: {
 		[theme.breakpoints.down('lg')]: {
-			textAlign: 'center',
+			textAlign: 'end',
 		},
 		[theme.breakpoints.down('md')]: {
 			textAlign: 'end',
@@ -168,7 +176,6 @@ const calculatorStyle = theme => ({
 			textAlign: 'center',
 		},
 		[theme.breakpoints.down('xs')]: {
-			// display: 'table',
 			padding: '0',
 			textAlign: 'center',
 		},

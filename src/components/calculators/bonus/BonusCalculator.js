@@ -54,13 +54,13 @@ const BonusBetCalculator = ({onReceiveBonusBet}) => {
 	const renderResults = () => {
 		return (
 			<>
-				<Grid item lg={3} md={6} xs={12}>
+				<Grid item lg={4} md={6} xs={12}>
 					<Typography variant="h2" className={classes.resultText}>{`Use the £${calculation.bonusBet} bonus on ${calculation.bonus}`}</Typography>
 				</Grid>
-				<Grid item lg={3} md={6} xs={12}>
+				<Grid item lg={4} md={6} xs={12}>
 					<Typography variant="h2" className={classes.resultText}>{`Stake £${calculation.stake} on ${calculation.other}`}</Typography>
 				</Grid>
-				<Grid item lg={3} md={6} xs={12}>
+				<Grid item lg={4} md={6} xs={12}>
 					<Typography variant="h2" className={classes.resultText}>{`Total profit for either outcome £${calculation.profit}`}</Typography>
 				</Grid>
 			</>
@@ -88,7 +88,7 @@ const BonusBetCalculator = ({onReceiveBonusBet}) => {
 				<TextField label="Odds" placeholder={"3.55"} value={oddsTwo} onChange={e => isValidInput(e.target.value) && setOddsTwo(e.target.value)} className={classes.selection} />
 			</Grid>
 			{calculation ? renderResults() : null}
-			<Grid item lg={12} md={6} xs={12} className={classes.controls}>
+			<Grid item xs={12} className={classes.controls}>
 				<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate()}>
 					Calculate
 				</Button>

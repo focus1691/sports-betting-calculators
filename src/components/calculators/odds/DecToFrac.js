@@ -13,10 +13,16 @@ import calculatorStyle from "../../../jss/calculator";
 const useStyles = makeStyles(theme => ({
     ...calculatorStyle(theme),
     root: {
-        margin: "auto",
-        maxWidth: "50%",
-        border: "1px solid #e6e6e6",
-        padding: theme.spacing(1)
+        margin: 'auto',
+        maxWidth: '50%',
+        border: '1px solid #e6e6e6',
+        padding: theme.spacing(1),
+		[theme.breakpoints.down('md')]: {
+			maxWidth: '75%',
+		},
+		[theme.breakpoints.down('sm')]: {
+			maxWidth: '100%',
+		},
     },
 }));
 
@@ -48,7 +54,7 @@ export default function Lay() {
                     <Grid item xs={12}>
                         <TextField required label="Odds e.g. 2.56" value={odds} onChange={e => handleOddsChange(e)} className={classes.selection} alignItems="center" />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={12} className={classes.controls}>
                         <Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
                             Calculate
 					</Button>

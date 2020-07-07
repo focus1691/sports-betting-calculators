@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
 		margin: "auto",
 		maxWidth: "90%",
 		border: "1px solid #e6e6e6",
-		padding: theme.spacing(1)
+		padding: theme.spacing(1),
 	}
 }));
 
@@ -196,7 +196,7 @@ export default function Dutching() {
 			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField disabled label="Profit" className={classes.resultMain} value={profit} />
 			</Grid>
-			<Grid item xs={12}>
+			<Grid item xs={12} className={classes.controls}>
 				<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
 					Calculate
 				</Button>
