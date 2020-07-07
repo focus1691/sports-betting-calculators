@@ -153,13 +153,31 @@ const calculatorStyle = theme => ({
 		listStylePosition: "inside",
 		padding: theme.spacing(1)
 	},
+	controls: {
+		[theme.breakpoints.down('lg')]: {
+			textAlign: 'center',
+		},
+		[theme.breakpoints.down('md')]: {
+			textAlign: 'end',
+		},
+		[theme.breakpoints.down('sm')]: {
+			padding: '0',
+			textAlign: 'center',
+		},
+		[theme.breakpoints.down('xs')]: {
+			// display: 'table',
+			padding: '0',
+			textAlign: 'center',
+		},
+	},
 	calculateBtn: {
 		background: '#095609',
 		color: '#fff',
 		border: '2px solid #fff',
 		"&:hover": {
 			background: "#000"
-		}
+		},
+
 	},
 	clearBtn: {
 		margin: theme.spacing(1),
@@ -168,12 +186,14 @@ const calculatorStyle = theme => ({
 		border: '2px solid #fff',
 		"&:hover": {
 			background: "#000"
-		}
+		},
+
 	},
 	addBtn: {
 		color: '#fff',
 		margin: theme.spacing(1),
-		border: '1px solid #ff8f46'
+		border: '1px solid #ff8f46',
+
 	}
 });
 

@@ -63,7 +63,7 @@ const ArbCalculator = ({onReceiveArb}) => {
 			<Grid item lg={2} md={4} xs={12}>
 				<TextField required label="Stake" value={stake} onChange={e => isValidInput(e.target.value) && setStake(e.target.value)} className={classes.selection} />
 			</Grid>
-			<Grid item lg={4} md={8} xs={12}>
+			<Grid item lg={4} md={12} sm={12} xs={12} className={classes.controls}>
 				<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
 					Calculate
 				</Button>
