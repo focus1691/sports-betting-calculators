@@ -74,21 +74,21 @@ const BonusBetCalculator = ({onReceiveBonusBet}) => {
 			</Grid>
 
 			<Grid item lg={2} md={6} xs={12}>
-				<TextField label="Name of outcome 1" placeholder={"Outcome 1"} value={outcome1} onChange={e => setOutcome1(e.target.value)} className={classes.selection} />
+				<TextField label="Outcome 1" placeholder={"Outcome 1"} value={outcome1} onChange={e => setOutcome1(e.target.value)} className={classes.selection} />
 			</Grid>
 
 			<Grid item lg={2} md={6} xs={12}>
-				<TextField label="Outcome 1 Odds" placeholder={"2.56"} value={oddsOne} onChange={e => isValidInput(e.target.value) && setOddsOne(e.target.value)} className={classes.selection} />
+				<TextField label="Odds" placeholder={"2.56"} value={oddsOne} onChange={e => isValidInput(e.target.value) && setOddsOne(e.target.value)} className={classes.selection} />
 			</Grid>
 
 			<Grid item lg={2} md={6} xs={12}>
-				<TextField label="Name of outcome 2" placeholder={"Outcome 2"} value={outcome2} onChange={e => setOutcome2(e.target.value)} className={classes.selection} />
+				<TextField label="Outcome 2" placeholder={"Outcome 2"} value={outcome2} onChange={e => setOutcome2(e.target.value)} className={classes.selection} />
 			</Grid>
 			<Grid item lg={2} md={6} xs={12}>
-				<TextField label="Outcome 2 Odds" placeholder={"2.56"} value={oddsTwo} onChange={e => isValidInput(e.target.value) && setOddsTwo(e.target.value)} className={classes.selection} />
+				<TextField label="Odds" placeholder={"3.55"} value={oddsTwo} onChange={e => isValidInput(e.target.value) && setOddsTwo(e.target.value)} className={classes.selection} />
 			</Grid>
 			{calculation ? renderResults() : null}
-			<Grid item lg={12} md={6} xs={12}>
+			<Grid item lg={12} md={6} xs={12} className={classes.controls}>
 				<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate()}>
 					Calculate
 				</Button>

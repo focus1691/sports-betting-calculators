@@ -99,7 +99,10 @@ const calculatorStyle = theme => ({
 			'&:focused': {
 				borderColor: '#8CE7FC'
 			}
-		}
+		},
+		[theme.breakpoints.down('md')]: {
+			margin: '0',
+		},
 	},
 	resultText: {
 		marginTop: theme.spacing(4),

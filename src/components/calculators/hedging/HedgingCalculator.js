@@ -72,7 +72,7 @@ const HedgingCalculator = ({ onReceiveHedge }) => {
 				/>
 			</Grid>
 			{calculationMade ? <HedgeResults amountToBet={amountToBet} profit={profit} totalStaked={totalStaked} totalReturned={totalReturned} style={classes.resultText} /> : null}
-			<Grid item lg={4} md={8} sm={12} xs={12}>
+			<Grid item lg={4} md={8} sm={12} xs={12} className={classes.controls}>
 				<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
 					Calculate
 				</Button>

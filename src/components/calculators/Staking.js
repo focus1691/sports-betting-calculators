@@ -65,7 +65,7 @@ export default function Staking() {
 							<option value={100}>Aggressive</option>
 						</Select>
 					</Grid>
-					<Grid item lg={6} md={4} sm={12} xs={12}>
+					<Grid item lg={6} md={4} sm={12} xs={12} className={classes.controls}>
 						<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
 							Calculate
 						</Button>
