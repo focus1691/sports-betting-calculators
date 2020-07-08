@@ -21,8 +21,6 @@ const useStyles = makeStyles(theme => ({
 		color: '#ffffff',
 		fontWeight: 'bold',
 		fontSize: "70px",
-		color: "#ffffff",
-		textAlign: "center",
 		WebkitAnimation: "glow 1s ease-in-out infinite alternate",
 		MozAnimation: "glow 1s ease-in-out infinite alternate",
 		animation: "glow 1s ease-in-out infinite alternate",
