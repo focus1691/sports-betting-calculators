@@ -19,7 +19,13 @@ const useStyles = makeStyles(theme => ({
 		textAlign: 'center',
 		paddingLeft: '20px',
 		color: '#ffffff',
-		fontWeight: 'bold'
+		fontWeight: 'bold',
+		fontSize: "70px",
+		color: "#ffffff",
+		textAlign: "center",
+		WebkitAnimation: "glow 1s ease-in-out infinite alternate",
+		MozAnimation: "glow 1s ease-in-out infinite alternate",
+		animation: "glow 1s ease-in-out infinite alternate",
 	},
 	logoContainer: {
 		width: '8%',
@@ -46,7 +52,7 @@ export default function Header() {
 					</div>
 					
 					<Typography variant="h1" noWrap className={classes.title} align="center" alignCenter>
-						Easy to use, sports calculators!
+						Sport Betting Calculators
 					</Typography>
 				</Toolbar>
 			</AppBar>
