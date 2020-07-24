@@ -12,17 +12,11 @@ const useStyles = makeStyles(theme => ({ ...footerStyle(theme) }));
 export default function StickyFooter() {
   const classes = useStyles();
   const [openTerms, setOpenTerms] = useState(false);
-  const preventDefault = (event) => event.preventDefault();
 
   const onClickTerms = (e) => {
       e.preventDefault();
 
       setOpenTerms(!openTerms);
-  };
-
-  const onClickContact = (e) => {
-      e.preventDefault();
-
   };
 
   return (
