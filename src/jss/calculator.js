@@ -21,6 +21,7 @@ const calculatorStyle = theme => ({
 		background: "#000",
 		color: "#fff",
 		'& .MuiTypography-h1': {
+			fontSize: '2rem',
 			fontWeight: 'bold'
 		},
 		'& .MuiIconButton-root': {

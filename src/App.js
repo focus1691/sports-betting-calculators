@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import PermanentDrawerLeft from "./components/sidebar/Sidebar";
 import renderCalculator from "./utils/RenderCalculator";
 import { useCookies } from 'react-cookie';
@@ -8,7 +9,8 @@ import { useCookies } from 'react-cookie';
 const useStyles = makeStyles(theme => ({
 	root: {
 		display: "flex",
-		height: '100vh'
+		minHeight: '100vh',
+		margin: theme.spacing(1, 1, 15, 1),
 	},
 	toolbar: theme.mixins.toolbar,
 	content: {
@@ -36,6 +38,7 @@ function App() {
 				<div className={classes.toolbar} />
 				{renderCalculator(calculator)}
 			</main>
+			<Footer />
 		</div>
 	);
 }

@@ -13,32 +13,32 @@ const useStyles = makeStyles(theme => ({
 		marginLeft: drawerWidth,
 		zIndex: 2500,
 		position: 'fixed',
-		background: 'linear-gradient(86deg, rgba(0,0,0,1) 26%, rgba(253,213,110,1) 53%, rgba(255,216,115,1) 76%, rgba(197,136,0,1) 100%)',
+		backgroundColor: '#a6812f',
 	},
 	title: {
 		textAlign: 'center',
 		paddingLeft: '20px',
 		color: '#ffffff',
+		fontSize: '1rem',
 		fontWeight: 'bold',
-		fontSize: "70px",
 		WebkitAnimation: "glow 1s ease-in-out infinite alternate",
 		MozAnimation: "glow 1s ease-in-out infinite alternate",
 		animation: "glow 1s ease-in-out infinite alternate",
 	},
 	logoContainer: {
 		width: '8%',
+		filter: 'brightness(0%)',
 	},
 	logo: {
 		width: '100%',
 		margin: '10px',
 		padding: '5px',
 		position: 'relative',
-		overflow: 'hidden'
-	}
+		overflow: 'hidden',
+	},
 }));
 
 export default function Header() {
-	console.log(window.location.origin);
 	const classes = useStyles();
 	return (
 		<>
@@ -49,7 +49,7 @@ export default function Header() {
 						<img src={window.location.origin + '/logo3.png'} alt="Top Bet Calculator" className={classes.logo} />
 					</div>
 					
-					<Typography variant="h1" noWrap className={classes.title} align="center" alignCenter>
+					<Typography variant="h1" noWrap className={classes.title} align="center">
 						Sport Betting Calculators
 					</Typography>
 				</Toolbar>

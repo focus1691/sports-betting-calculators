@@ -29,7 +29,7 @@ const sidebarStyle = theme => ({
 		padding: theme.spacing(3)
 	},
 	icon: {
-		color: "#c58800"
+		color: "#c58800",
 	}
 });
 
