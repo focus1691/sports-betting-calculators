@@ -1,10 +1,6 @@
 # Sports Betting Calculator
 
-[Demo](https://focused-golick-101211.netlify.com/)
-
-React calculator to calculate loan repayments.
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Demo](https://www.topbetcalculator.com/)
 
 ## Calculators
 - Arbitrage
@@ -27,7 +23,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm test`
 Runs the tests written in Jest.
-
-### Libraries
-- Validator.
-- Material-UI.
