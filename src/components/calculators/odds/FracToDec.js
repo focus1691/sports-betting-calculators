@@ -8,6 +8,7 @@ import Chip from "@material-ui/core/Chip";
 import validator from "validator";
 import { decimalFromFraction } from "../../../utils/calculators/OddsConverter";
 import calculatorStyle from "../../../jss/calculator";
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
 	...calculatorStyle(theme),
@@ -44,9 +45,12 @@ export default function FracToDec() {
 	};
 
 	return (
-		<div className={classes.root}>
+		<div className={clsx (classes.root,"Arbitrage3" )}>
+			
 			<Grid container spacing={3}>
+			
 				<Grid item xs={12} className={classes.title}>
+				
 					<Typography variant="h1">Fractional to Decimal</Typography>
 				</Grid>
 				<Grid container className={classes.container}>

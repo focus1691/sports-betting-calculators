@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
+import {Grid, Box} from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
 import TableChartIcon from "@material-ui/icons/TableChart";
 import FunctionsIcon from "@material-ui/icons/Functions";
 import ArbCalculator from "./LayCalculator";
 import ArbTable from "./LayTable";
 import headerStyle from "../../../jss/Header";
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({ ...headerStyle(theme) }));
 
@@ -21,15 +21,16 @@ const Lay = () => {
 	};
 
 	return (
-		<div className={classes.root}>
+		<div className={clsx (classes.root,"lay" )}>
+			<Box mt={5}/>
 			<Grid container spacing={3}>
 				<Grid item xs={12} className={classes.title}>
-					<Typography variant="h1">
+					<Box fontSize="30px" fontWeight="bold">
 						Lay
 						<IconButton color="inherit" aria-label="Toggle" edge="start" onClick={toggleMode}>
 							{mode === "calculator" ? <TableChartIcon /> : <FunctionsIcon />}
 						</IconButton>
-					</Typography>
+					</Box>
 				</Grid>
 				{mode === "calculator" ? <ArbCalculator /> : <ArbTable />}
 			</Grid>

@@ -7,13 +7,12 @@ import { initialState, reducer } from "../../../reducers/dutchingReducer";
 import { isValidInput, isOneInputValid, isValidInputStrict } from "../../../utils/sanitiser/NumberSanitiser";
 import { calculateDutching, calculateProfit } from "../../../utils/calculators/Dutching";
 import calculatorStyle from "../../../jss/calculator";
-
+import { Box } from "@material-ui/core";
 const useStyles = makeStyles(theme => ({
 	...calculatorStyle(theme),
 	root: {
 		margin: "auto",
 		maxWidth: "90%",
-		border: "1px solid #e6e6e6",
 		padding: theme.spacing(1),
 	}
 }));
@@ -50,18 +49,19 @@ export default function Dutching() {
 	};
 
 	return (
+		<Box className="stake-change">
 		<Grid container className={classes.container}>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
 					required
-					label="Selection 1 odds"
+					label="Selection 1 "
 					className={classes.selection}
 					value={selections.sel1.odds}
 					onChange={e => dispatch({ type: "SET_SELECTION", payload: { selectionId: "sel1", odds: e.target.value } })}
 				/>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
-				<TextField disabled label="Stake" className={classes.result} value={selections.sel1.stake} />
+				<Box value={selections.sel1.stake}  fontSize="16px" marginTop={3} borderBottom="1px dashed #78e7fc" marginLeft={1} color="#fff"> Stake</Box>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
@@ -72,7 +72,7 @@ export default function Dutching() {
 				/>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
-				<TextField disabled label="Stake" className={classes.result} value={selections.sel2.stake} />
+				<Box value={selections.sel1.stake}  fontSize="16px" marginTop={3} borderBottom="1px dashed #78e7fc" marginLeft={1} color="#fff"> Stake</Box>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
@@ -83,7 +83,7 @@ export default function Dutching() {
 				/>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
-				<TextField disabled label="Stake" className={classes.result} value={selections.sel3.stake} />
+				<Box value={selections.sel1.stake}  fontSize="16px" marginTop={3} borderBottom="1px dashed #78e7fc" marginLeft={1} color="#fff"> Stake</Box>
 			</Grid>
 
 			<Grid item lg={2} md={4} sm={6} xs={12}>
@@ -95,7 +95,7 @@ export default function Dutching() {
 				/>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
-				<TextField disabled label="Stake" className={classes.result} value={selections.sel4.stake} />
+				<Box value={selections.sel1.stake}  fontSize="16px" marginTop={3} borderBottom="1px dashed #78e7fc" marginLeft={1} color="#fff"> Stake</Box>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
@@ -106,7 +106,7 @@ export default function Dutching() {
 				/>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
-				<TextField disabled label="Stake" className={classes.result} value={selections.sel5.stake} />
+				<Box value={selections.sel1.stake}  fontSize="16px" marginTop={3} borderBottom="1px dashed #78e7fc" marginLeft={1} color="#fff"> Stake</Box>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
@@ -117,7 +117,7 @@ export default function Dutching() {
 				/>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
-				<TextField disabled label="Stake" className={classes.result} value={selections.sel6.stake} />
+				<Box value={selections.sel1.stake}  fontSize="16px" marginTop={3} borderBottom="1px dashed #78e7fc" marginLeft={1} color="#fff"> Stake</Box>
 			</Grid>
 
 			<Grid item lg={2} md={4} sm={6} xs={12}>
@@ -129,7 +129,7 @@ export default function Dutching() {
 				/>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
-				<TextField disabled label="Stake" className={classes.result} value={selections.sel7.stake} />
+				<Box value={selections.sel1.stake}  fontSize="16px" marginTop={3} borderBottom="1px dashed #78e7fc" marginLeft={1} color="#fff"> Stake</Box>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
@@ -140,7 +140,7 @@ export default function Dutching() {
 				/>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
-				<TextField disabled label="Stake" className={classes.result} value={selections.sel8.stake} />
+				<Box value={selections.sel1.stake}  fontSize="16px" marginTop={3} borderBottom="1px dashed #78e7fc" marginLeft={1} color="#fff"> Stake</Box>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
@@ -151,7 +151,7 @@ export default function Dutching() {
 				/>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
-				<TextField disabled label="Stake" className={classes.result} value={selections.sel9.stake} />
+				<Box value={selections.sel1.stake}  fontSize="16px" marginTop={3} borderBottom="1px dashed #78e7fc" marginLeft={1} color="#fff"> Stake</Box>
 			</Grid>
 
 			<Grid item lg={2} md={4} sm={6} xs={12}>
@@ -163,7 +163,7 @@ export default function Dutching() {
 				/>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
-				<TextField disabled label="Stake" className={classes.result} value={selections.sel10.stake} />
+				<Box value={selections.sel1.stake}  fontSize="16px" marginTop={3} borderBottom="1px dashed #78e7fc" marginLeft={1} color="#fff"> Stake</Box>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
@@ -174,7 +174,7 @@ export default function Dutching() {
 				/>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
-				<TextField disabled label="Stake" className={classes.result} value={selections.sel11.stake} />
+				<Box value={selections.sel1.stake}  fontSize="16px" marginTop={3} borderBottom="1px dashed #78e7fc" marginLeft={1} color="#fff"> Stake</Box>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField
@@ -185,10 +185,10 @@ export default function Dutching() {
 				/>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
-				<TextField disabled label="Stake" className={classes.result} value={selections.sel12.stake} />
+				<Box value={selections.sel1.stake}  fontSize="16px" marginTop={3} borderBottom="1px dashed #78e7fc" marginLeft={1} color="#fff"> Stake</Box>
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
-				<TextField label="Stake" className={classes.resultMain} value={stake} onChange={e => dispatch({ type: "SET_STAKE", payload: e.target.value })} />
+				<TextField  className={classes.resultMain} value={stake} onChange={e => dispatch({ type: "SET_STAKE", payload: e.target.value })} />
 			</Grid>
 			<Grid item lg={2} md={4} sm={6} xs={12}>
 				<TextField disabled label="Total Return" className={classes.resultMain} value={totalReturn} />
@@ -205,5 +205,6 @@ export default function Dutching() {
 				</Button>
 			</Grid>
 		</Grid>
+		</Box>
 	);
 }

@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
+import {Button, Box} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
@@ -90,15 +90,26 @@ export default function Lay() {
 					</Select>
 				</Grid>
 				<Grid item lg={4} md={4} xs={12}>
+					<Box className="stake-setting">
 					<TextField required label="Bet Stake" value={state.betStake} onChange={e => dispatch({ type: "SET_BACK_STAKE", payload: e.target.value })} className={classes.selection} />
+					</Box>
 				</Grid>
 				<Grid item lg={4} md={4} xs={12}>
+					<Box className="Back-Odds">
 					<TextField required label="Back Odds" value={state.backOdds} onChange={e => dispatch({ type: "SET_BACK_ODDS", payload: e.target.value })} className={classes.selection} />
+					<Box  className="lay-odds">
 					<TextField required label="Lay Odds" value={state.layOdds} onChange={e => dispatch({ type: "SET_LAY_ODDS", payload: e.target.value })} className={classes.selection} />
+					</Box>
+					</Box>
+
 				</Grid>
 				<Grid item lg={4} md={4} xs={12}>
+					<Box className="Back-Commission">
 					<TextField required label="Back Commission" value={state.backCommission} onChange={e => dispatch({ type: "SET_BACK_COMMISSION", payload: e.target.value })} className={classes.selection} />
+					
+					
 					<TextField required label="Lay Commission" value={state.layCommission} onChange={e => dispatch({ type: "SET_LAY_COMMISSION", payload: e.target.value })} className={classes.selection} />
+					</Box>
 				</Grid>
 				<Grid container xs={12} spacing={1} style={{ display: state.calculationMade ? "" : "none" }}>
 					<Grid item lg={4} md={4} sm={12} xs={12}>

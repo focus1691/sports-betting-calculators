@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
+import { Button } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
@@ -9,6 +9,7 @@ import validator from "validator";
 import { isValidInput, isValidInputStrict } from "../../../utils/sanitiser/NumberSanitiser";
 import { fractionalFromDecimal } from "../../../utils/calculators/OddsConverter";
 import calculatorStyle from "../../../jss/calculator";
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
     ...calculatorStyle(theme),
@@ -45,7 +46,8 @@ export default function Lay() {
     };
 
     return (
-        <div className={classes.root}>
+        <div className={clsx (classes.root,"Arbitrage3" )}>
+            
             <Grid container spacing={3}>
                 <Grid item xs={12} className={classes.title}>
                     <Typography variant="h1">Decimal to Fraction</Typography>

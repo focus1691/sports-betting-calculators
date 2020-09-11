@@ -8,6 +8,8 @@ import FunctionsIcon from "@material-ui/icons/Functions";
 import DutchingCalculator from "./DutchingCalculator";
 import DutchingTable from "./DutchingTable";
 import headerStyle from "../../../jss/Header";
+import clsx from 'clsx';
+import { Box } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({ ...headerStyle(theme) }));
 
@@ -21,15 +23,16 @@ const Dutching = () => {
 	};
 
 	return (
-		<div className={classes.root}>
+		<div className={clsx (classes.root,"Arbitrage" )}>
+			<Box mt={11}> </Box>
 			<Grid container spacing={3}>
 				<Grid item xs={12} className={classes.title}>
-					<Typography variant="h1">
+					<Box fontSize="25px" fontWeight="bold">
 						Dutching
 						<IconButton color="inherit" aria-label="Toggle" edge="start" onClick={toggleMode}>
 							{mode === "calculator" ? <TableChartIcon /> : <FunctionsIcon />}
 						</IconButton>
-					</Typography>
+					</Box>
 				</Grid>
 				{mode === "calculator" ? <DutchingCalculator /> : <DutchingTable />}
 			</Grid>

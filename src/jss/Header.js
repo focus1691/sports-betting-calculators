@@ -1,6 +1,6 @@
 const headerStyle = theme => ({
 	root: {
-		border: "1px solid #e6e6e6",
+		
 		padding: theme.spacing(1)
     },
 	title: {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
+import {Grid, Box} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
@@ -10,7 +10,7 @@ import validator from "validator";
 import { isValidInputStrict } from "../../utils/sanitiser/NumberSanitiser";
 import calculatorStyle from "../../jss/calculator";
 import resultChipStyle from "../../jss/ResultChip";
-
+import clsx from 'clsx';
 const useStyles = makeStyles(theme => ({
 	...calculatorStyle(theme),
 	root: {
@@ -53,10 +53,11 @@ export default function Staking() {
 	};
 
 	return (
-		<div className={classes.root}>
+		<div className={clsx (classes.root,"Arbitrage3", "stakking" )}>
+			
 			<Grid container spacing={3}>
 				<Grid item xs={12} className={classes.title}>
-					<Typography variant="h1">Staking</Typography>
+					<Box fontSize="30px" fontWeight="bold">Staking</Box>
 				</Grid>
 				<Grid container className={classes.container}>
 					<Grid item sm={9} xs={12}>

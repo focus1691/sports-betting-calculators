@@ -3,7 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import { IconButton } from "@material-ui/core";
+import DehazeIcon from '@material-ui/icons/Dehaze';
+import ClearIcon from '@material-ui/icons/Clear';
 
 const drawerWidth = 240;
 
@@ -11,35 +14,44 @@ const useStyles = makeStyles(theme => ({
 	appBar: {
 		width: '100%',
 		marginLeft: drawerWidth,
-		zIndex: 2500,
+		zIndex: 150,
 		position: 'fixed',
 		backgroundColor: '#a6812f',
-	},
-	title: {
-		textAlign: 'center',
-		paddingLeft: '20px',
-		color: '#ffffff',
-		fontSize: '1rem',
-		fontWeight: 'bold',
-		WebkitAnimation: "glow 1s ease-in-out infinite alternate",
-		MozAnimation: "glow 1s ease-in-out infinite alternate",
-		animation: "glow 1s ease-in-out infinite alternate",
 	},
 	logoContainer: {
 		width: '8%',
 		filter: 'brightness(0%)',
 	},
+	[theme.breakpoints.only('sm')]: {
+		logoContainer: {
+			width: '13%',
+			filter: 'brightness(0%)',
+		},
+		
+	  },
+	  [theme.breakpoints.only('xs')]: {
+		logoContainer: {
+			width: '13%',
+			filter: 'brightness(0%)',
+		},
+		
+	  },
 	logo: {
 		width: '100%',
 		margin: '10px',
-		padding: '5px',
+		padding: '0px',
 		position: 'relative',
 		overflow: 'hidden',
 	},
 }));
 
-export default function Header() {
+export default function Header(props) {
 	const classes = useStyles();
+	const [value, setValue] = React.useState(true);
+	const sideBar=()=>{
+		setValue(!value);
+	};
+	props.onChange(value)
 	return (
 		<>
 			<CssBaseline />
@@ -48,10 +60,13 @@ export default function Header() {
 					<div className={classes.logoContainer}>
 						<img src={window.location.origin + '/logo3.png'} alt="Top Bet Calculator" className={classes.logo} />
 					</div>
-					
-					<Typography variant="h1" noWrap className={classes.title} align="center">
-						Sport Betting Calculators
-					</Typography>
+					<Box textAlign="center"  className="title-header" fontSize="33px" fontWeight="bold" marginLeft="auto" marginRight="auto" color="#ffffff">
+						 Sport Betting Calculators 
+					</Box>
+
+					{/* <Hidden lgUp xlUp mdUp > */}
+	<IconButton onClick={sideBar}> {!value ? <ClearIcon />: <DehazeIcon />} </IconButton>
+					{/* </Hidden>  */}
 				</Toolbar>
 			</AppBar>
 		</>

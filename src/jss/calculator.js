@@ -101,6 +101,8 @@ const calculatorStyle = theme => ({
 			'&:before': {
 				color: '#73cd44',
 				borderBottom: '1px dashed #78e7fc'
+			
+				
 			},
 			'&:after': {
 				borderColor: '#fff'
