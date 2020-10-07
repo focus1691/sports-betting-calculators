@@ -71,7 +71,7 @@ const HedgingCalculator = ({ onReceiveHedge }) => {
 					onChange={e => dispatch({ type: "SET_COMMISSION", payload: e.target.value })}
 				/>
 			</Grid>
-			{calculationMade ? <HedgeResults amountToBet={amountToBet} profit={profit} totalStaked={totalStaked} totalReturned={totalReturned} style={classes.resultText} /> : null}
+			{calculationMade ? <HedgeResults amountToBet={amountToBet} profit={profit} totalStaked={totalStaked} totalReturned={totalReturned} style={classes.resultTextBonus} /> : null}
 			<Grid item lg={4} md={6} xs={12} className={classes.controls}>
 				<Button variant="contained" color="primary" className={classes.calculateBtn} onClick={handleCalculate}>
 					Calculate

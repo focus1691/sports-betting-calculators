@@ -37,6 +37,12 @@
   margin-top: -65px;
 }
 
+@media (max-width:959px) {
+  .stake-setting {
+    margin-top: 0px;
+  }
+}
+
 @media (max-width:600px) {
   .title-header {
     font-size: 18px !important;
@@ -81,10 +87,6 @@
     margin-top: 50px !important;
   }
 
-  /* .title-header{
-margin-left: 30px !important;
-font-size: 18px !important;
-} */
   .makeStyles-logo-6 {
     width: 70px !important;
     margin-left: -5px !important;
@@ -92,11 +94,6 @@ font-size: 18px !important;
     overflow: hidden !important;
     position: relative !important;
 
-  }
-
-
-  .stake-setting {
-    margin-top: -35px;
   }
 
   .Back-Odds {
@@ -123,8 +120,4 @@ font-size: 18px !important;
   .drawer-setting {
     margin-top: 100px !important;
   }
-
-  /* .drawer-padding-setting{
-  padding-top: 90px !important;
-} */
 }
