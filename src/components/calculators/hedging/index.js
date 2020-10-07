@@ -29,7 +29,7 @@ const Hedging = () => {
           item
           xs={12}
           className={classes.title}
-          style={{ marginTop: matches && mode != "calculator" ? 100 : null }}
+          style={{ marginTop: matches && mode !== "calculator" ? 100 : null }}
         >
           <Box fontSize="25px" fontWeight="bold">
             Hedging
