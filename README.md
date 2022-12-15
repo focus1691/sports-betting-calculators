@@ -1,6 +1,6 @@
 # Sports Betting Calculator
 
-[Demo](https://sportscalculators.netlify.app/)
+<a href="https://sportscalculators.netlify.app/" target="_blank">Demo</a>
 
 ## Calculators
 - Arbitrage
